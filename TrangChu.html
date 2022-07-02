@@ -1,0 +1,545 @@
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Phụ Kiện Điện Thoại DKL</title>
+    <link rel="stylesheet" href="Styles/header.css">
+    <link rel="stylesheet" href="Styles/trangchu.css">
+    <link rel="stylesheet" href="Styles/footer.css">
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon" />
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <script>
+        window.onload=function(){
+            numberSP();
+        };
+    </script>
+</head>
+
+<body>
+    <main class="main">
+
+        <header>
+            <div id="layoutHeader">
+                <div id="layoutLogo">
+                    <img src="images/logo.png" height="100px" width="100px">
+                    <p style="font-size: 25px; text-shadow: 3px 3px darkgray;"><b>MANG ĐẾN ĐỀU TỐT NHẤT CHO BẠN</b></p>
+                </div>
+
+                <div class="bodyNav">
+                    <div class="navigation">
+                        <ul>
+                            <li class="list active">
+                                <a href="TrangChu.html">
+                                    <span class="icon">
+                                        <ion-icon name="home-outline"></ion-icon>
+                                    </span>
+                                    <span class="text">Trang chủ</span>
+                                </a>
+                            </li>
+                            <li class="list">
+                                <a href="SanPham.html">
+                                    <span class="icon">
+                                        <ion-icon name="id-card-outline"></ion-icon>
+                                    </span>
+                                    <span class="text">Sản phẩm</span>
+                                </a>
+                            </li>
+                            <li class="list">
+                                <a href="TinTuc.html">
+                                    <span class="icon">
+                                        <ion-icon name="newspaper-outline"></ion-icon>
+                                    </span>
+                                    <span class="text">Tin Tức</span>
+                                </a>
+                            </li>
+                            <li class="list">
+                                <a href="LienHe.html">
+                                    <span class="icon">
+                                        <ion-icon name="mail-unread-outline"></ion-icon>
+                                    </span>
+                                    <span class="text">Liên hệ</span>
+                                </a>
+                            </li>
+                            <li class="list">
+                                <a href="taikhoan.html">
+                                    <span class="icon">
+                                        <ion-icon name="person-outline"></ion-icon>
+                                    </span>
+                                    <span class="text">Tài khoản</span>
+                                </a>
+                            </li>
+
+                            <span class="icCart">
+                                <ion-icon name="cart-outline" onclick="showcart();"></ion-icon><sup id="numberCart">0</sup>
+                            </span>
+
+                            <div class="indicator"></div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                const list = document.querySelectorAll('.list');
+                function activeLink() {
+                    list.forEach((item) => item.classList.remove('active'));
+                    this.classList.add('active');
+                }
+                list.forEach((item) => item.addEventListener('click', activeLink));
+            </script>
+
+            <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+            <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        </header>
+
+        <div class="cart-container" id="show-cart">
+            <table>
+                <tr>
+                    <th style="width: 50px;">STT</th>
+                    <th>Sản phẩm</th>
+
+                    <th>Thành tiền</th>
+                    <th></th>
+                </tr>
+                <tr>
+                    <td></td>
+                </tr>
+                <tbody id="mycart">
+
+                </tbody>
+
+
+            </table>
+
+            <div>
+                <a href="ThanhToan.html"><button>Thanh toán</button></a>
+                
+            </div>
+        </div>
+        
+        <div class="slider " id="slider"></div>
+
+        <div>
+            <div class="layoutSP">
+                <div class="sp">
+                    <a href="SacDuPhong.html">
+                        <img src="images/TrangChu/sacduphong.webp" alt="Sạc dự phòng" width="100%">
+                    </a>
+
+                </div>
+                <div class="sp">
+                    <a href="OpLung.html">
+                        <img src="images/TrangChu/oplung.png" alt="Ốp lưng" width="100%">
+                    </a>
+                </div>
+                <div class="sp">
+                    <a href="CapSac.html">
+                        <img src="images/TrangChu/sac.png" alt="Cáp sạc" width="100%">
+                    </a>
+                </div>
+                <div class="sp">
+                    <a href="TaiNghe.html">
+                        <img src="images/TrangChu/tainghe.png" alt="Tai nghe" width="100%">
+                    </a>
+                </div>
+                <div class="sp">
+                    <a href="Loa.html">
+                        <img src="images/TrangChu/loa.png" alt="Loa" width="100%">
+                    </a>
+                </div>
+
+                <div class="clear"></div>
+
+            </div>
+
+
+            <div class="menuLayout effect1">
+
+                <div class="menuItem">
+                    <section class="s1">
+                        <a href="SanPham.html" class="iconbtn fas fa-laptop"></a>
+                    </section>
+                    <p>SẢN PHẨM</p>
+                </div>
+
+                <div class="menuItem">
+                    <section class="s1">
+                        <a href="SanPham.html" class="iconbtn fas fa-mobile-alt"></a>
+                    </section>
+                    <p>ĐẶT HÀNG ONLINE</p>
+                </div>
+
+                <div class="menuItem">
+                    <section class="s1">
+                        <a href="#slider1" class="iconbtn fas fa-cog"></a>
+                    </section>
+                    <p>XEM NGAY ƯU ĐÃI</p>
+                </div>
+
+                <div class="menuItem">
+                    <section class="s1">
+                        <a href="#layoutDiss" class="iconbtn fas fa-link"></a>
+                    </section>
+                    <p>CỬA HÀNG</p>
+                </div>
+
+                <div class="clear"></div>
+
+            </div>
+
+
+            <div class="layoutPro effect2" id="layoutPro">
+
+                <div class="detailPro">
+                    <h3>Thanh toán nhanh</h3>
+                    <p>DKL hỗ trợ bạn đa dạng các hình thức thanh toán</p>
+                    <div class="payLayout">
+                        <div class="paydetail">
+                            <span class="fas fa-money-bill-wave"></span>
+                            <p class="diss">Tiền mặt</p>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="payLayout">
+                        <div class="paydetail">
+                            <span class="fas fa-credit-card"></span>
+                            <p class="diss">Thẻ ngân hàng</p>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="payLayout">
+                        <div class="paydetail">
+                            <span class="fas fa-comments-dollar"></span>
+                            <p class="diss">Chuyển khoản</p>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="payLayout">
+                        <div class="paydetail">
+                            <span class="fas fa-qrcode"></span>
+                            <p class="diss">Mã QR</p>
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+
+                </div>
+
+                <div class="detailPro">
+                    <h3>Ship thần tốc</h3>
+                    <p>DKL luôn cố gắng hết mình để bạn có những trải nghiệm tốt nhất</p>
+                    <div class="payLayout">
+                        <div class="paydetail">
+                            <span class="fas fa-shipping-fast"></span>
+                            <p class="diss">Giao hàng nhanh chóng</p>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="payLayout">
+                        <div class="paydetail">
+                            <span class="fas fa-user-shield"></span>
+                            <p class="diss">An toàn</p>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="payLayout">
+                        <div class="paydetail">
+                            <span class="fas fa-check"></span>
+                            <p class="diss">Đúng hàng, mẫu mã</p>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="payLayout">
+                        <div class="paydetail">
+                            <span class="fas fa-cookie-bite"></span>
+                            <p class="diss">Hàng nhận được là tốt nhất</p>
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+                </div>
+
+                <div class="detailPro1">
+                    <h3>Chính sách đổi trả</h3>
+                    <p>DKL sẵn sàng phục vụ bạn nếu bạn có gì không hài lòng về sản phẩm</p>
+                    <div class="payLayout">
+                        <div class="paydetail">
+                            <span class="fas fa-undo-alt"></span>
+                            <p class="diss">Trả hàng trong vòng 7 ngày</p>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="payLayout">
+                        <div class="paydetail">
+                            <span class="fas fa-exchange"></span>
+                            <p class="diss">Đổi hàng trong vòng 14 ngày</p>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="payLayout">
+                        <div class="paydetail">
+                            <span class="fas fa-percentage"></span>
+                            <p class="diss">Giảm 10% nếu lỗi do DKL</p>
+                        </div>
+                    </div>
+                    <div class="clear"></div>
+                    <div class="payLayout">
+                        <div class="paydetail">
+                            <span class="fas fa-calendar-day"></span>
+                            <p class="diss">Phản hồi trong vòng 2 giờ</p>
+                        </div>
+                    </div>
+
+                    <div class="clear"></div>
+                </div>
+
+            </div>
+
+            <div class="slider1 effect3" id="slider1"></div>
+
+            <div class="layout-2cols effect4">
+                <a href="SacDuPhong.html">
+                    <div class="colItem" style="border-right: 3px solid black;">
+                        <img src="images/TrangChu/dienthoai.png" alt="Điện thoại">
+                        <p>PHỤ KIỆN ĐIỆN THOẠI</p>
+                    </div>
+                </a>
+
+                <a href="Loa.html">
+                    <div class="colItem">
+                        <img src="images/TrangChu/loa1.png" alt="Loa">
+                        <p>THIẾT BỊ ÂM THANH</p>
+                    </div>
+                </a>
+
+                <div class="clear"></div>
+            </div>
+
+            <div class="menuLayout effect5">
+                <div class="menuItem">
+                    <section class="s1">
+                        <a href="SanPham.html" class="iconbtn fas fa-cart-arrow-down"></a>
+                    </section>
+                    <p>Xem hàng online</p>
+                </div>
+
+                <div class="menuItem">
+                    <section class="s1">
+                        <a href="#layoutPro" class="iconbtn fas fa-credit-card"></a>
+                    </section>
+                    <p>Thanh toán nhanh</p>
+                </div>
+
+                <div class="menuItem">
+                    <section class="s1">
+                        <a href="#layoutPro" class="iconbtn fas fa-rocket"></a>
+                    </section>
+                    <p>Ship thần tốc</p>
+                </div>
+
+                <div class="menuItem">
+                    <section class="s1">
+                        <a href="#layoutPro" class="iconbtn fas fa-people-carry"></a>
+                    </section>
+                    <p>Cả nhà đều vui</p>
+                </div>
+
+            </div>
+
+            <div class="layoutDiss effect6" id="layoutDiss">
+                <img src="images/TrangChu/backgroundDT.jpg" alt="Background điện thoại">
+                <div class="detail">
+                    <h3>CỬA HÀNG DKL</h3>
+                    <p>Thương hiệu DKL với gần 3 năm kinh nghiệm trong lĩnh vực phụ kiện điện thoại cùng với sứ mệnh
+                        mang
+                        đến sự thỏa mái và tỏa sáng cho chú dế yêu của bạn.</p>
+                    <p>Với sự nỗ lực không ngừng trong việc nâng cấp trải nghiệm mua hàng, DKL hy vọng bạn sẽ có khoảng
+                        thời
+                        gian vui vẻ và hài lòng tại DKL.</p>
+                    <p class="logan"><b>DKL - Mang đến đều tốt nhất cho bạn.</b></p>
+                </div>
+                <img src="images/TrangChu/cuahang.jpg" alt="Cửa hàng">
+            </div>
+
+        </div>
+
+        <footer class="footer" id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="layoutAbout">
+
+                        <div>
+                            <img src="images/logo.png" height="100px" width="100px">
+                        </div>
+                        <h3>CỬA HÀNG PHỤ KIỆN ĐIỆN THOẠI DKL</h3>
+                        <section>
+                            <span class="iconbtn fas fa-location"></span>
+                            <p>Khu ABC, đường XYU, phường CDE, quận IJK, thành phố QWE</p>
+                        </section>
+
+                        <div class="clear"></div>
+
+                        <section>
+                            <span class="iconbtn fas fa-phone"></span>
+                            <p>0123456789</p>
+                        </section>
+
+                        <div class="clear"></div>
+
+                        <section>
+                            <span class="iconbtn fas fa-envelope"></span>
+                            <p>DKL@gmail.com</p>
+                        </section>
+
+                    </div>
+                    <div class="footer-col">
+                        <h4>DKL shop</h4>
+                        <ul>
+                            <li><a href="#">về chúng tôi</a></li>
+                            <li><a href="#layoutPro">các dịch vụ</a></li>
+                            <li><a href="#layoutPro">các chính sách</a></li>
+                            <li><a href="#layoutPro">các chương trình</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Hỗ trợ</h4>
+                        <ul>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#layoutPro">shipping</a></li>
+                            <li><a href="#layoutPro">trả hàng</a></li>
+                            <li><a href="#layoutPro">đặt hàng</a></li>
+                            <li><a href="#layoutPro">thanh toán</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>cửa hàng</h4>
+                        <ul>
+                            <li><a href="SacDuPhong.html">sạc dự phòng</a></li>
+                            <li><a href="OpLung.html">ốp lưng</a></li>
+                            <li><a href="CapSac.html">sạc</a></li>
+                            <li><a href="TaiNghe.html">tai nghe</a></li>
+                            <li><a href="Loa.html">loa</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Theo dõi chúng tôi</h4>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+        <div class="loader">
+            <span></span>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    
+    <!-- Hieu ung cuon trang -->
+    <script>
+        window.addEventListener('scroll', () => {
+            let content = document.querySelector('.effect1');
+            let contentPosition = content.getBoundingClientRect().top;
+            let screenPosition = window.innerHeight - 100;
+            if (contentPosition < screenPosition) {
+                content.classList.add('show');
+            } else {
+                content.classList.remove('show');
+            }
+        });
+    </script>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            let content = document.querySelector('.effect2');
+            let contentPosition = content.getBoundingClientRect().top;
+            let screenPosition = window.innerHeight - 100;
+            if (contentPosition < screenPosition) {
+                content.classList.add('show');
+            } else {
+                content.classList.remove('show');
+            }
+        });
+    </script>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            let content = document.querySelector('.effect3');
+            let contentPosition = content.getBoundingClientRect().top;
+            let screenPosition = window.innerHeight - 100;
+            if (contentPosition < screenPosition) {
+                content.classList.add('show');
+            } else {
+                content.classList.remove('show');
+            }
+        });
+    </script>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            let content = document.querySelector('.effect4');
+            let contentPosition = content.getBoundingClientRect().top;
+            let screenPosition = window.innerHeight - 100;
+            if (contentPosition < screenPosition) {
+                content.classList.add('show');
+            } else {
+                content.classList.remove('show');
+            }
+        });
+    </script>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            let content = document.querySelector('.effect5');
+            let contentPosition = content.getBoundingClientRect().top;
+            let screenPosition = window.innerHeight - 100;
+            if (contentPosition < screenPosition) {
+                content.classList.add('show');
+            } else {
+                content.classList.remove('show');
+            }
+        });
+    </script>
+
+    <script>
+        window.addEventListener('scroll', () => {
+            let content = document.querySelector('.effect6');
+            let contentPosition = content.getBoundingClientRect().top;
+            let screenPosition = window.innerHeight - 100;
+            if (contentPosition < screenPosition) {
+                content.classList.add('show');
+            } else {
+                content.classList.remove('show');
+            }
+        });
+    </script>
+
+
+    <!-- Hieu ung load page -->
+
+    <script>
+        const loader = document.querySelector('.loader');
+        const main = document.querySelector('.main');
+        function init(){
+            setTimeout(() => {
+                loader.style.opacity = 0;
+                loader.style.display = 'none';
+                main.style.display = 'block'
+                setTimeout(() => (main.style.opacity = 1), 50);
+            }, 1000);
+        }
+        init();
+    </script>
+    <script src="Scrips/scrips.js"></script>
+</body>
+
+</html>

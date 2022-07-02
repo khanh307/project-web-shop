@@ -1,0 +1,681 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+
+    <title>Ốp lưng</title>
+   
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="Styles/header.css">
+    <link rel="stylesheet" href="Styles/footer.css">
+    <link rel="stylesheet" href="Styles/sanpham.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script>
+        window.onload=function(){
+            numberSP();
+            showHeart();
+            showRedHeart();
+        };
+    </script>
+</head>
+
+<body>
+    <main class="main">
+        <header>
+            <div id="layoutHeader">
+                <div id="layoutLogo">
+                    <img src="images/logo.png" height="100px" width="100px">
+                    <p style="font-size: 25px; text-shadow: 3px 3px darkgray;"><b>MANG ĐẾN ĐỀU TỐT NHẤT CHO BẠN</b></p>
+                </div>
+    
+                <div class="bodyNav">
+                    <div class="navigation">
+                        <ul>
+                            <li class="list">
+                                <a href="TrangChu.html">
+                                    <span class="icon">
+                                        <ion-icon name="home-outline"></ion-icon>
+                                    </span>
+                                    <span class="text">Trang chủ</span>
+                                </a>
+                            </li>
+                            <li class="list active">
+                                <a href="SanPham.html">
+                                    <span class="icon">
+                                        <ion-icon name="id-card-outline"></ion-icon>
+                                    </span>
+                                    <span class="text">Sản phẩm</span>
+                                </a>
+                            </li>
+                            <li class="list">
+                                <a href="TinTuc.html">
+                                    <span class="icon">
+                                        <ion-icon name="newspaper-outline"></ion-icon>
+                                    </span>
+                                    <span class="text">Tin Tức</span>
+                                </a>
+                            </li>
+                            <li class="list">
+                                <a href="LienHe.html">
+                                    <span class="icon">
+                                        <ion-icon name="mail-unread-outline"></ion-icon>
+                                    </span>
+                                    <span class="text">Liên hệ</span>
+                                </a>
+                            </li>
+                            <li class="list">
+                                <a href="taikhoan.html">
+                                    <span class="icon">
+                                        <ion-icon name="person-outline"></ion-icon> 
+                                    </span>
+                                    <span class="text">Tài khoản</span>
+                                </a>
+                            </li>
+    
+                            <span class="icCart">
+                                <ion-icon name="cart-outline" onclick="showcart();"></ion-icon><sup id="numberCart"></sup>
+                            </span>
+    
+                            <div class="indicator"></div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    
+            <script>
+                const list = document.querySelectorAll('.list');
+                function activeLink() {
+                    list.forEach((item) => item.classList.remove('active'));
+                    this.classList.add('active');
+                }
+                list.forEach((item) => item.addEventListener('click', activeLink));
+            </script>
+    
+            <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+            <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        </header>
+        <main id="contentWrapper">
+            <script>
+                $(document).ready(function(){
+                    $('.icon-content').click(function(){
+                        
+                        $('.leftMenu').slideToggle();
+                    });
+                })
+            </script>
+    
+            <div class="icon-content">
+                <i class="bx bx-menu" id="icon-menu"></i>
+            </div>
+            <div class="cart-container" id="show-cart">
+                <table>
+                    <tr>
+                        <th style="width: 50px;">STT</th>
+                        <th>Sản phẩm</th>
+    
+                        <th>Thành tiền</th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tbody id="mycart">
+    
+                    </tbody>
+    
+    
+                </table>
+    
+                <div>
+                    <a href="ThanhToan.html"><button>Thanh toán</button></a>
+    
+                </div>
+            </div>
+            <div id="leftSide">
+                <div class="leftMenu">
+                    <ul>
+                        <li><a href="SanPham.html">Sản phẩm Hot <i style="color: orange; font-size: 25px;" class='bx bxs-hot'></i></a></li>
+                        <li> <a href="SacDuPhong.html">Sạc dự phòng</a></li>
+                        <li><a href="CapSac.html">Cáp sạc</a></li>
+                        <li><a href="TaiNghe.html">Tai nghe</a></li>
+                        <li><a href="Loa.html">Loa</a></li>
+                        <li style="background-color: rgb(129, 183, 233);"><a href="OpLung.html" style="color: black;">Ốp lưng</a></li>
+                    </ul>
+                    <div class="heart" id="showheart">
+                        <div class="title">
+                            <b>SẢN PHẨM YÊU THÍCH</b>
+                        </div>
+                        <div id="tblHeart">
+                            <table>
+                            <tbody id="myheart">
+    
+                            </tbody>
+                        </table>
+                        </div>
+                        
+                    </div>
+    
+                </div>
+    
+            </div>
+    
+            <div id="mainContent">
+                <div class="SP_content">
+                    <img class="banner" src="images/SanPham/banner/oplungchat_banner_850.png" alt="">
+                </div>
+                <div class="card_content">
+    
+    
+                    <!-- SP 1 -->
+                    <div class="card">
+                        <div class="card_heart">
+                           <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+    
+                        <div class="card_img" style="width: 250px; object-fit: cover; margin-left: 10px;">
+                            <img 
+                                src="images/SanPham/OpLung/sp1.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Ốp lưng iPhone 13 Pro Da Native Union</span> <br>
+                            <span id="price">1,120,000</span><sup>đ</sup>
+                            
+                        </div>
+                        <div class="card_note">
+                            <p>
+                            <ul>
+                                <li>Kiểu dáng thời trang và đẹp mắt.</li> <br>
+                                <li>Thiết kế vừa vặn và ôm sát thân máy.</li> <br>
+                                <li>Dễ dàng tháo/lắp ốp vào máy.</li>
+                            </ul>
+                            </p>
+    
+                        </div>
+    
+    
+                    </div>
+    
+                    <!-- SP2 -->
+                    <div class="card">
+                        <div class="card_heart">
+                           <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+    
+                        <div class="card_img" style="width: 250px; object-fit: cover; margin-left: 10px; margin-top: 0px;">
+                            <img 
+                                src="images/SanPham/OpLung/sp2.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Ốp lưng iPhone 11 Da Spigen La Manon</span> <br>
+                            <span id="price">825,000</span><sup>đ</sup>
+                         
+                        </div>
+    
+                        <div class="card_note">
+                            <p>
+                            <ul>
+                                <li>Kiểu dáng thời trang và đẹp mắt.</li> <br>
+                                <li>Thiết kế vừa vặn và ôm sát thân máy.</li> <br>
+                                <li>Dễ dàng tháo/lắp ốp vào máy.</li>
+                            </ul>
+    
+                            </p>
+    
+                        </div>
+    
+    
+                    </div>
+    
+                    <!-- SP3 -->
+                    <div class="card">
+                        <div class="card_heart">
+                           <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+    
+                        <div class="card_img" style="width: 180px; object-fit: cover; margin-left: 35px; margin-top: -15px;">
+                            <img 
+                                src="images/SanPham/OpLung/sp3.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Ốp lưng iPhone 13 Pro Max RAINBOW PURE JM</span> <br>
+                            <span id="price">140,000</span><sup>đ</sup>
+                          
+                        </div>
+    
+                        <div class="card_note">
+                            <p>
+                            <ul>
+                                <li>Được làm trong suốt, điểm thêm màu cầu vồng lạ mắt, thời trang.</li> <br>
+                                <li>Tạo đường khoét tỉ mỉ trên từng chi tiết, cho thao tác thoải mái như khi không dùng ốp
+                                    lưng.</li> <br>
+    
+                            </ul>
+                            </p>
+    
+                        </div>
+    
+    
+                    </div>
+    
+                    <!-- SP 4 -->
+    
+                    <div class="card">
+                        <div class="card_heart">
+                           <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+    
+                        <div class="card_img" style="width: 180px; object-fit: cover; margin-left: 40px; margin-top: -20px;">
+                            <img 
+                                src="images/SanPham/OpLung/sp4.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name"> Ốp lưng iPhone 12/12 Pro Switcheasy Aero</span> <br>
+                            <span id="price">551,000</span><sup>đ</sup>
+                        
+                        </div>
+    
+                        <div class="card_note">
+                            <p>
+                            <ul>
+                                <li>Kiểu dáng thời trang và đẹp mắt.</li> <br>
+                                <li>Thiết kế vừa vặn và ôm sát thân máy.</li> <br>
+                                <li>Dễ dàng tháo/lắp ốp vào máy.</li>
+                            </ul>
+                            </p>
+    
+                        </div>
+    
+    
+                    </div>
+    
+    
+    
+                </div>
+    
+                <div class="card_content">
+                    <!-- Sản phẩm 5 -->
+                    <div class="card">
+                        <div class="card_heart">
+                           <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+    
+                        <div class="card_img" style="width: 280px; object-fit: cover; margin-top: -10px;">
+                            <img 
+                                src="images/SanPham/OpLung/sp5.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Ốp lưng Galaxy Z Flip3 5G</span> <br>
+                            <span id="price">752,000</span><sup>đ</sup>
+                          
+                        </div>
+    
+                        <div class="card_note">
+                            <p>
+                            <ul>
+                                <li>Thiết kế gọn nhẹ, trong suốt, phù hợp cho Galaxy Z Flip3 5G.
+                                </li>
+                                <li>Chất liệu nhựa dẻo chắc chắn, đảm bảo an toàn cho điện thoại. </li>
+                                <li>Tránh rơi rớt nhờ tích hợp vòng đeo ngón tay. </li>
+                            </ul>
+                            </p>
+    
+                        </div>
+    
+    
+                    </div>
+                    <!-- Sản phẩm 6 -->
+                    <div class="card">
+                        <div class="card_heart">
+                           <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+    
+                        <div class="card_img" style="width: 300px; object-fit: cover; margin-left: -20px; margin-top: -25px;">
+                            <img 
+                                src="images/SanPham/OpLung/sp6.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Ốp lưng Galaxy A02 Arden CK-A002-20</span> <br>
+                            <span id="price">30,000</span><sup>đ</sup>
+                          
+                        </div>
+    
+                        <div class="card_note">
+                            <p>
+                            <ul>
+                                <li>Kiểu dáng thời trang và đẹp mắt.</li> <br>
+                                <li>Thiết kế vừa vặn và ôm sát thân máy.</li> <br>
+                                <li>Dễ dàng tháo/lắp ốp vào máy.</li>
+                            </ul>
+                            </p>
+    
+                        </div>
+    
+    
+                    </div>
+    
+                    <!-- Sản phẩm 7 -->
+                    <div class="card">
+                        <div class="card_heart">
+                           <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+    
+                        <div class="card_img" style="width: 200px; object-fit: cover; margin-left: 30px; margin-top: -25px;">
+                            <img 
+                                src="images/SanPham/OpLung/sp7.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Ốp lưng Galaxy A52 Milky Silicone JM</span> <br>
+                            <span id="price">70,000</span><sup>đ</sup>
+                         
+                        </div>
+    
+                        <div class="card_note">
+                            <p>
+                            <ul>
+                                <li>Kiểu dáng thời trang và đẹp mắt.</li> <br>
+                                <li>Thiết kế vừa vặn và ôm sát thân máy.</li> <br>
+                                <li>Dễ dàng tháo/lắp ốp vào máy.</li>
+                            </ul>
+                            </p>
+    
+                        </div>
+    
+    
+                    </div>
+    
+                    <!-- Sản phẩm 8 -->
+                    <div class="card">
+                        <div class="card_heart">
+                           <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+    
+                        <div class="card_img" style="width: 180px; object-fit: cover; margin-left: 35px; margin-top: -10px;">
+                            <img 
+                                src="images/SanPham/OpLung/sp8.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Bao da Galaxy Note 20 Ultra Clear View</span> <br>
+                            <span id="price">1,050,000</span><sup>đ</sup>
+                        
+                        </div>
+    
+                        <div class="card_note">
+                            <p>
+                            <ul>
+                                <li>Bao da thiết kế thanh lịch, vừa vặn ôm trọn thân máy, bảo vệ hoàn hảo, dễ sử dụng các
+                                    nút chức năng.</li>
+                                <li>Hiển thị thông báo, kiểm tra nhắc nhở, xem thời lượng pin mà không cần mở điện thoại.
+                                </li>
+    
+                            </ul>
+                            </p>
+    
+                        </div>
+    
+    
+                    </div>
+    
+                </div>
+    
+    
+    
+                <div class="card_content">
+                    <!-- Sản phẩm 9 -->
+                    <div class="card">
+                        <div class="card_heart">
+                           <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+    
+                        <div class="card_img" style="width: 250px; object-fit: cover; margin-left: 10px; margin-top: -20px;">
+                            <img 
+                                src="images/SanPham/OpLung/sp9.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Ốp lưng Redmi 9T Luggage TPU COSANO</span> <br>
+                            <span id="price">100,000</span><sup>đ</sup>
+                            
+                        </div>
+    
+                        <div class="card_note">
+                            <p>
+                            <ul>
+                                <li>Ốp lưng có màu xanh lá, kiểu dáng sang trọng. </li>
+                                <li>Khoét lỗ ở hệ thống camera, cổng sạc hợp lý.</li>
+                                <li>Chuyên dụng cho dòng Redmi 9T, ôm sát bảo vệ máy.</li>
+                            </ul>
+                            </p>
+    
+                        </div>
+    
+    
+                    </div>
+                    <!-- Sản phẩm 10 -->
+                    <div class="card">
+                        <div class="card_heart">
+                           <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+    
+                        <div class="card_img" style="width: 250px; object-fit: cover; margin-left: 10px; margin-top: -20px;">
+                            <img 
+                                src="images/SanPham/OpLung/sp10.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Ốp lưng Redmi 9A HANDLE JM</span> <br>
+                            <span id="price">7,990,000</span><sup>đ</sup>
+                          
+                        </div>
+    
+                        <div class="card_note">
+                            <p>
+                            <ul>
+                                <li>Kiểu dáng thời trang và đẹp mắt.</li> <br>
+                                <li>Thiết kế vừa vặn và ôm sát thân máy.</li> <br>
+                                <li>Dễ dàng tháo/lắp ốp vào máy.</li>
+                            </ul>
+                            </p>
+    
+                        </div>
+    
+    
+                    </div>
+    
+                    <!-- Sản phẩm 11 -->
+                    <div class="card">
+                        <div class="card_heart">
+                           <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+    
+                        <div class="card_img" style="width: 250px; object-fit: cover; margin-left: 5px; margin-top: -20px;">
+                            <img 
+                                src="images/SanPham/OpLung/sp11.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Ốp lưng Vivo Y20/Y20S/Y12S Bling Star TPU PC COSANO</span> <br>
+                            <span id="price">40,000</span><sup>đ</sup>
+                            
+                        </div>
+    
+                        <div class="card_note">
+                            <p>
+                            <ul>
+                                <li>Kiểu dáng thời trang và đẹp mắt.</li> <br>
+                                <li>Thiết kế vừa vặn và ôm sát thân máy.</li> <br>
+                                <li>Dễ dàng tháo/lắp ốp vào máy.</li>
+                            </ul>
+                            </p>
+    
+                        </div>
+    
+    
+                    </div>
+    
+                    <!-- Sản phẩm 12 -->
+                    <div class="card">
+                        <div class="card_heart">
+                           <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+    
+                        <div class="card_img" style="width: 250px; object-fit: cover; margin-left: 0px; margin-top: -10px; margin-bottom: 0px;">
+                            <img 
+                                src="images/SanPham/OpLung/sp12.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Ốp lưng Realme C11 Meteori JM</span> <br>
+                            <span id="price">70,000</span><sup>đ</sup>
+                           
+                        </div>
+    
+                        <div class="card_note">
+                            <p>
+                            <ul>
+                                <li>Kiểu dáng thời trang và đẹp mắt.</li> <br>
+                                <li>Thiết kế vừa vặn và ôm sát thân máy.</li> <br>
+                                <li>Dễ dàng tháo/lắp ốp vào máy.</li>
+                            </ul>
+                            </p>
+    
+                        </div>
+    
+    
+                    </div>
+    
+                </div>
+            </div>
+        </main>
+    
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="layoutAbout">
+    
+                        <div>
+                            <img src="https://images.radiovolna.net/_files/images/stations/28146/d637d66ace073448b472675811802e4b.png"
+                                height="100px" width="100px">
+                        </div>
+                        <h3>CỬA HÀNG PHỤ KIỆN ĐIỆN THOẠI DKL</h3>
+                        <section>
+                            <span class="iconbtn fas fa-location"></span>
+                            <p>Khu ABC, đường XYU, phường CDE, quận IJK, thành phố QWE</p>
+                        </section>
+    
+                        <div class="clear"></div>
+    
+                        <section>
+                            <span class="iconbtn fas fa-phone"></span>
+                            <p>0123456789</p>
+                        </section>
+    
+                        <div class="clear"></div>
+    
+                        <section>
+                            <span class="iconbtn fas fa-envelope"></span>
+                            <p>DKL@gmail.com</p>
+                        </section>
+    
+                    </div>
+                    <div class="footer-col">
+                        <h4>DKL shop</h4>
+                        <ul>
+                            <li><a href="#">về chúng tôi</a></li>
+                            <li><a href="#">các dịch vụ</a></li>
+                            <li><a href="#">các chính sách</a></li>
+                            <li><a href="#">các chương trình</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Hỗ trợ</h4>
+                        <ul>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">shipping</a></li>
+                            <li><a href="#">trả hàng</a></li>
+                            <li><a href="#">đặt hàng</a></li>
+                            <li><a href="#">thanh toán</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>cửa hàng</h4>
+                        <ul>
+                            <li><a href="#">sạc dự phòng</a></li>
+                            <li><a href="#">ốp lưng</a></li>
+                            <li><a href="#">sạc</a></li>
+                            <li><a href="#">tai nghe</a></li>
+                            <li><a href="#">loa</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Theo dõi chúng tôi</h4>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+    <div class="loader">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <script>
+        const loader = document.querySelector('.loader');
+        const main = document.querySelector('.main');
+        function init(){
+            setTimeout(() => {
+                loader.style.opacity = 0;
+                loader.style.display = 'none';
+                main.style.display = 'block'
+                setTimeout(() => (main.style.opacity = 1), 50);
+            }, 500);
+        }
+        init();
+    </script>
+    <script src="Scrips/scrips.js"></script>
+</body>
+
+</html>

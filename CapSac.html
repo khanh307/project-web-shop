@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+
+    <title>Cáp sạc</title>
+
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="Styles/header.css">
+    <link rel="stylesheet" href="Styles/footer.css">
+    <link rel="stylesheet" href="Styles/sanpham.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script>
+        window.onload = function () {
+            numberSP();
+            showHeart();
+            showRedHeart();
+        };
+    </script>
+</head>
+
+<body>
+    <main class="main">
+        <header>
+            <div id="layoutHeader">
+                <div id="layoutLogo">
+                    <img src="images/logo.png" height="100px" width="100px">
+                    <p style="font-size: 25px; text-shadow: 3px 3px darkgray;"><b>MANG ĐẾN ĐỀU TỐT NHẤT CHO BẠN</b></p>
+                </div>
+
+                <div class="bodyNav">
+                    <div class="navigation">
+                        <ul>
+                            <li class="list">
+                                <a href="TrangChu.html">
+                                    <span class="icon">
+                                        <ion-icon name="home-outline"></ion-icon>
+                                    </span>
+                                    <span class="text">Trang chủ</span>
+                                </a>
+                            </li>
+                            <li class="list active">
+                                <a href="SanPham.html">
+                                    <span class="icon">
+                                        <ion-icon name="id-card-outline"></ion-icon>
+                                    </span>
+                                    <span class="text">Sản phẩm</span>
+                                </a>
+                            </li>
+                            <li class="list">
+                                <a href="TinTuc.html">
+                                    <span class="icon">
+                                        <ion-icon name="newspaper-outline"></ion-icon>
+                                    </span>
+                                    <span class="text">Tin Tức</span>
+                                </a>
+                            </li>
+                            <li class="list">
+                                <a href="LienHe.html">
+                                    <span class="icon">
+                                        <ion-icon name="mail-unread-outline"></ion-icon>
+                                    </span>
+                                    <span class="text">Liên hệ</span>
+                                </a>
+                            </li>
+                            <li class="list">
+                                <a href="taikhoan.html">
+                                    <span class="icon">
+                                        <ion-icon name="person-outline"></ion-icon>
+                                    </span>
+                                    <span class="text">Tài khoản</span>
+                                </a>
+                            </li>
+
+                            <span class="icCart">
+                                <ion-icon name="cart-outline" onclick="showcart();"></ion-icon><sup
+                                    id="numberCart">0</sup>
+                            </span>
+
+                            <div class="indicator"></div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                const list = document.querySelectorAll('.list');
+                function activeLink() {
+                    list.forEach((item) => item.classList.remove('active'));
+                    this.classList.add('active');
+                }
+                list.forEach((item) => item.addEventListener('click', activeLink));
+            </script>
+
+            <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+            <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        </header>
+        <main id="contentWrapper">
+            <script>
+                $(document).ready(function () {
+                    $('.icon-content').click(function () {
+
+                        $('.leftMenu').slideToggle();
+                    });
+                })
+            </script>
+
+            <div class="icon-content">
+                <i class="bx bx-menu" id="icon-menu"></i>
+            </div>
+            <div class="cart-container" id="show-cart">
+                <table>
+                    <tr>
+                        <th style="width: 50px;">STT</th>
+                        <th>Sản phẩm</th>
+
+                        <th>Thành tiền</th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tbody id="mycart">
+
+                    </tbody>
+
+
+                </table>
+
+                <div>
+                    <a href="ThanhToan.html"><button>Thanh toán</button></a>
+
+                </div>
+            </div>
+            <div id="leftSide">
+                <div class="leftMenu">
+                    <ul>
+                        <li><a href="SanPham.html">Sản phẩm Hot <i style="color: orange; font-size: 25px;"
+                                    class='bx bxs-hot'></i></a></li>
+                        <li> <a href="SacDuPhong.html">Sạc dự phòng</a></li>
+                        <li style="background-color: rgb(129, 183, 233);"><a href="CapSac.html"
+                                style="color: black;">Cáp sạc</a></li>
+                        <li><a href="TaiNghe.html">Tai nghe</a></li>
+                        <li><a href="Loa.html">Loa</a></li>
+                        <li><a href="OpLung.html">Ốp lưng</a></li>
+                    </ul>
+
+                    <div class="heart" id="showheart">
+                        <div class="title">
+                            <b>SẢN PHẨM YÊU THÍCH</b>
+                        </div>
+                        <div id="tblHeart">
+                            <table>
+                                <tbody id="myheart">
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+
+            <div id="mainContent">
+                <div class="SP_content">
+                    <img class="banner" src="images/SanPham/banner/capsac-1200x150.png" alt="">
+                </div>
+                <div class="card_content">
+
+
+                    <!-- SP 1 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+
+                        <div class="card_img" style="width: 160px; object-fit: cover; margin-left: 65px; ">
+                            <img src="images/SanPham/CapSac/sp1.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Cáp Type C Xmobile TCS2000</span> <br>
+                            <span id="price">225,000</span><sup>đ</sup>
+
+                        </div>
+                        <div class="card_note">
+                            <p>
+                                Chuôi cáp được chế tác cứng cáp, bóng sáng, dây bện chắc chắn, màu đen thanh lịch, tô
+                                điểm
+                                cho
+                                sản
+                                phẩm thêm đẹp mắt, thời thượng. Với chiều dài lên tới 2 m, cáp sạc phối ghép được các
+                                thiết
+                                bị ở
+                                khoảng cách khác nhau linh hoạt, không sợ bị căng dây.
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                    <!-- SP2 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+
+                        <div class="card_img" style="width: 160px; object-fit: cover; margin-left: 70px;">
+                            <img src="images/SanPham/CapSac/sp2.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Adapter sạc USB 5W AVA JC62A</span> <br>
+                            <span id="price">45,000</span><sup>đ</sup>
+                        </div>
+
+                        <div class="card_note">
+                            <p>
+                                Adapter sạc thiết kế gọn đẹp, màu trắng tinh tế, dễ mang theo bên mình khi đi ra ngoài
+                                Kích cỡ nhỏ nhắn, cho vào túi xách, balo, vali khi đi học, đi chơi, đi làm, công tác,...
+                                Sạc các thiết bị đa dạng
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                    <!-- SP3 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+
+                        <div class="card_img">
+                            <img style="width: 200px; object-fit: cover; margin-left: 30px; margin-bottom: 30px;"
+                                src="images/SanPham/CapSac/sp3.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name"> Adapter sạc 4 cổng 15W Xmobile DS931-WB</span> <br>
+                            <span id="price">225,000</span><sup>đ</sup>
+                        </div>
+
+                        <div class="card_note">
+                            <p>
+
+                                Adapter được nhà sản xuất trang bị 4 cổng sạc tiện ích, giúp bạn tiết kiệm không gian ổ
+                                cắm,
+                                khi
+                                sạc
+                                riêng lẻ, cổng Type C cho nguồn ra đến 5V - 3A và cổng USB là 5V - 2.4A.
+
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                    <!-- SP 4 -->
+
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+
+                        <div class="card_img"
+                            style="width: 200px; object-fit: cover; margin-left: 65px; margin-top: -35px;">
+                            <img src="images/SanPham/CapSac/sp4.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Đế sạc không dây Qi 10W Xmobile TS-C106W-B</span> <br>
+                            <span id="price">360,000</span><sup>đ</sup>
+
+                        </div>
+
+                        <div class="card_note">
+                            <p>
+                                Đế sạc có thiết kế mỏng nhẹ, đơn giản, dạng hình
+                                tròn
+                                với bề
+                                mặt sạc mềm giúp hạn chế bị trầy xước, người dùng dễ dàng sạc cho thiết bị chỉ với thao
+                                tác
+                                đặt
+                                lên
+                                bề mặt sạc mà không bị vương víu bởi dây sạc.
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                </div>
+
+                <div class="card_content">
+                    <!-- Sản phẩm 5 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+
+                        <div class="card_img"
+                            style="width: 200px; object-fit: cover; margin-left: 60px; margin-top: -30px;">
+                            <img src="images/SanPham/CapSac/sp5.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Cáp Lightning AVA LTPL-01</span> <br>
+                            <span id="price">25,000</span><sup>đ</sup>
+
+                        </div>
+
+                        <div class="card_note">
+                            <p>
+                                Cáp có thiết kế đơn giản, chiều dài cáp 20 cm giúp người dùng dễ dàng mang theo bên
+                                người,
+                                đặt trên bàn học, bàn làm việc,… hoặc dễ dàng cất giữ vào balo, túi xách.
+                            </p>
+
+                        </div>
+
+
+                    </div>
+                    <!-- Sản phẩm 6 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+
+                        <div class="card_img"
+                            style="width: 200px; object-fit: cover; margin-left: 55px; margin-top: -30px;">
+                            <img src="images/SanPham/CapSac/sp6.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Adapter sạc 2 cổng</span> <br>
+                            <span id="price">540,000</span><sup>đ</sup>
+
+                        </div>
+
+                        <div class="card_note">
+                            <p>
+                                Kiểu dáng adapter sạc đơn giản, trang nhã, chất lượng tốt cho độ bền cao. Thiết kế đầu
+                                cắm
+                                loại có 2 chấu quen thuộc, dùng được với các ổ điện ở mọi nơi từ nhà cho tới công sở,
+                                trường
+                                học, nhà hàng, khách sạn,...
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                    <!-- Sản phẩm 7 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+
+                        <div class="card_img"
+                            style="width: 200px; object-fit: cover; margin-left: 55px; margin-top: -30px;">
+                            <img src="images/SanPham/CapSac/sp7.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name"> Adapter sạc 2 cổng AVA JC78</span> <br>
+                            <span id="price">75,000</span><sup>đ</sup>
+
+                        </div>
+
+                        <div class="card_note">
+                            <p>
+                                Bạn có thể dễ dàng mang theo Adapter sạc 2.4A Dual AVA JC78 bên mình hoặc cất nó trong
+                                balo,
+                                túi xách mà không lo chiếm nhiều diện tích.
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                    <!-- Sản phẩm 8 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+
+                        <div class="card_img"
+                            style="width: 200px; object-fit: cover; margin-left: 50px; margin-top: -30px;">
+                            <img src="images/SanPham/CapSac/sp8.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Cáp 3 đầu AVA AP03-1000</span> <br>
+                            <span id="price">50,000</span><sup>đ</sup>
+
+                        </div>
+
+                        <div class="card_note">
+                            <p>
+                                Cáp 3 đầu Lightning Type-C Micro 1 m AVA AP03-1000 có thiết kế đơn giản, cáp dài 1 m, dễ
+                                dàng cuộn lại và mang theo đến nhiều nơi
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="card_content">
+                    <!-- Sản phẩm 9 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+
+                        <div class="card_img"
+                            style="width: 200px; object-fit: cover; margin-left: 55px; margin-top: -30px;">
+                            <img src="images/SanPham/CapSac/sp9.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Sạc xe hơi Xmobile DS196-WB</span> <br>
+                            <span id="price">75,000</span><sup>đ</sup>
+
+                        </div>
+
+                        <div class="card_note">
+                            <p>
+                                Dùng để sạc pin bằng cách gắn vào đầu châm thuốc lá trên xe hơi.
+                                Cổng sạc chuẩn Type-C tương tích với nhiều dòng điện thoại hiện nay.
+                            </p>
+
+                        </div>
+
+
+                    </div>
+                    <!-- Sản phẩm 10 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+
+                        <div class="card_img"
+                            style="width: 200px; object-fit: cover; margin-left: 50px; margin-top: -30px;">
+                            <img src="images/SanPham/CapSac/sp10.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Sạc không dây HyperJuice HJ461</span> <br>
+                            <span id="price">1,190,000</span><sup>đ</sup>
+
+                        </div>
+
+                        <div class="card_note">
+                            <p>
+                                Được làm bằng thép không gỉ và nhôm có gắn
+                                nam châm từ tính cực kì chắc chắn, kết hợp chức năng từ tính của Hyper có lực hít mạnh
+                                đảm
+                                bảo cho iPhone không bị rơi rớt tuyệt đối. Hỗ trợ thêm đèn LED báo sạc tiện lợi.
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                    <!-- Sản phẩm 11 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+
+                        <div class="card_img"
+                            style="width: 200px; object-fit: cover; margin-left: 50px; margin-top: -30px;">
+                            <img src="images/SanPham/CapSac/sp11.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Sạc không dây Belkin WIA005</span> <br>
+                            <span id="price">1,079,000</span><sup>đ</sup>
+
+                        </div>
+
+                        <div class="card_note">
+                            <p>
+                                Mang đến hiệu suất sạc tối ưu cùng công nghệ sạc không dây từ tính tiên tiến, phụ kiện
+                                tự
+                                động căn chỉnh từ tính phù hợp với thiết bị cần sạc, cho phép nạp pin liên tục trong khi
+                                bạn
+                                vẫn có thể xem tiếp bộ phim, chương trình thể thao hấp dẫn đang trải nghiệm giữa chừng.
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                    <!-- Sản phẩm 12 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+
+                        <div class="card_img"
+                            style="width: 200px; object-fit: cover; margin-left: 55px; margin-top: -30px;">
+                            <img src="images/SanPham/CapSac/sp12.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Adapter chuyển đổi HyperDrive Gen 2 HD-G218</span> <br>
+                            <span id="price">4,690,000</span><sup>đ</sup>
+
+
+                        </div>
+
+                        <div class="card_note">
+                            <p>
+                                Chất liệu vỏ kim loại cho adapter chuyển đổi có độ bền cao, tăng tính thẩm mỹ, các đường
+                                gờ
+                                chạy ngang cho bạn cầm nắm vững vàng, không sợ trơn, tuột tay khi di động sản phẩm.
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+            <footer class="footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="layoutAbout">
+
+                            <div>
+                                <img src="https://images.radiovolna.net/_files/images/stations/28146/d637d66ace073448b472675811802e4b.png"
+                                    height="100px" width="100px">
+                            </div>
+                            <h3>CỬA HÀNG PHỤ KIỆN ĐIỆN THOẠI DKL</h3>
+                            <section>
+                                <span class="iconbtn fas fa-location"></span>
+                                <p>Khu ABC, đường XYU, phường CDE, quận IJK, thành phố QWE</p>
+                            </section>
+
+                            <div class="clear"></div>
+
+                            <section>
+                                <span class="iconbtn fas fa-phone"></span>
+                                <p>0123456789</p>
+                            </section>
+
+                            <div class="clear"></div>
+
+                            <section>
+                                <span class="iconbtn fas fa-envelope"></span>
+                                <p>DKL@gmail.com</p>
+                            </section>
+
+                        </div>
+                        <div class="footer-col">
+                            <h4>DKL shop</h4>
+                            <ul>
+                                <li><a href="#">về chúng tôi</a></li>
+                                <li><a href="#">các dịch vụ</a></li>
+                                <li><a href="#">các chính sách</a></li>
+                                <li><a href="#">các chương trình</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-col">
+                            <h4>Hỗ trợ</h4>
+                            <ul>
+                                <li><a href="#">FAQ</a></li>
+                                <li><a href="#">shipping</a></li>
+                                <li><a href="#">trả hàng</a></li>
+                                <li><a href="#">đặt hàng</a></li>
+                                <li><a href="#">thanh toán</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-col">
+                            <h4>cửa hàng</h4>
+                            <ul>
+                                <li><a href="#">sạc dự phòng</a></li>
+                                <li><a href="#">ốp lưng</a></li>
+                                <li><a href="#">sạc</a></li>
+                                <li><a href="#">tai nghe</a></li>
+                                <li><a href="#">loa</a></li>
+                            </ul>
+                        </div>
+                        <div class="footer-col">
+                            <h4>Theo dõi chúng tôi</h4>
+                            <div class="social-links">
+                                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                                <a href="#"><i class="fab fa-youtube"></i></a>
+                                <a href="#"><i class="fab fa-instagram"></i></a>
+                                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </main>
+    </main>
+
+    <div class="loader">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <script>
+        const loader = document.querySelector('.loader');
+        const main = document.querySelector('.main');
+        function init() {
+            setTimeout(() => {
+                loader.style.opacity = 0;
+                loader.style.display = 'none';
+                main.style.display = 'block'
+                setTimeout(() => (main.style.opacity = 1), 50);
+            }, 500);
+        }
+        init();
+    </script>
+    <script src="Scrips/scrips.js"></script>
+</body>
+
+</html>

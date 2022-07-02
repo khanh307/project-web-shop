@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+
+    <title>Sạc dự phòng</title>
+
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="Styles/header.css">
+    <link rel="stylesheet" href="Styles/footer.css">
+    <link rel="stylesheet" href="Styles/sanpham.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script>
+        window.onload=function(){
+            numberSP();
+            showHeart();
+            showRedHeart();
+        };
+    </script>
+</head>
+
+<body>
+    <main class="main">
+        <header>
+            <div id="layoutHeader">
+                <div id="layoutLogo">
+                    <img src="images/logo.png" height="100px" width="100px">
+                    <p style="font-size: 25px; text-shadow: 3px 3px darkgray;"><b>MANG ĐẾN ĐỀU TỐT NHẤT CHO BẠN</b></p>
+                </div>
+    
+                <div class="bodyNav">
+                    <div class="navigation">
+                        <ul>
+                            <li class="list">
+                                <a href="TrangChu.html">
+                                    <span class="icon">
+                                        <ion-icon name="home-outline"></ion-icon>
+                                    </span>
+                                    <span class="text">Trang chủ</span>
+                                </a>
+                            </li>
+                            <li class="list active">
+                                <a href="SanPham.html">
+                                    <span class="icon">
+                                        <ion-icon name="id-card-outline"></ion-icon>
+                                    </span>
+                                    <span class="text">Sản phẩm</span>
+                                </a>
+                            </li>
+                            <li class="list">
+                                <a href="TinTuc.html">
+                                    <span class="icon">
+                                        <ion-icon name="newspaper-outline"></ion-icon>
+                                    </span>
+                                    <span class="text">Tin Tức</span>
+                                </a>
+                            </li>
+                            <li class="list">
+                                <a href="LienHe.html">
+                                    <span class="icon">
+                                        <ion-icon name="mail-unread-outline"></ion-icon>
+                                    </span>
+                                    <span class="text">Liên hệ</span>
+                                </a>
+                            </li>
+                            <li class="list">
+                                <a href="taikhoan.html">
+                                    <span class="icon">
+                                        <ion-icon name="person-outline"></ion-icon>
+                                    </span>
+                                    <span class="text">Tài khoản</span>
+                                </a>
+                            </li>
+    
+                            <span class="icCart">
+                                <ion-icon name="cart-outline" onclick="showcart();"></ion-icon><sup id="numberCart">0</sup>
+                            </span>
+    
+                            <div class="indicator"></div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    
+            <script>
+                const list = document.querySelectorAll('.list');
+                function activeLink() {
+                    list.forEach((item) => item.classList.remove('active'));
+                    this.classList.add('active');
+                }
+                list.forEach((item) => item.addEventListener('click', activeLink));
+            </script>
+    
+            <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+            <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        </header>
+        <main id="contentWrapper">
+            <script>
+                $(document).ready(function(){
+                    $('.icon-content').click(function(){
+                        
+                        $('.leftMenu').slideToggle();
+                    });
+                })
+            </script>
+    
+            <div class="icon-content">
+                <i class="bx bx-menu" id="icon-menu"></i>
+            </div>
+            <div class="cart-container" id="show-cart">
+                <table>
+                    <tr>
+                        <th style="width: 50px;">STT</th>
+                        <th>Sản phẩm</th>
+    
+                        <th>Thành tiền</th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tbody id="mycart">
+    
+                    </tbody>
+    
+    
+                </table>
+    
+                <div>
+                    <a href="ThanhToan.html"><button>Thanh toán</button></a>
+                    
+                </div>
+            </div>
+        
+            <div id="leftSide">
+                <div class="leftMenu">
+                    <ul>
+                        <li><a href="SanPham.html">Sản phẩm Hot <i style="color: orange; font-size: 25px;"
+                                    class='bx bxs-hot'></i></a></li>
+                        <li style="background-color: rgb(129, 183, 233);"> <a href="SacDuPhong.html"
+                                style="color: black;">Sạc dự phòng</a></li>
+                        <li><a href="CapSac.html">Cáp sạc</a></li>
+                        <li><a href="TaiNghe.html">Tai nghe</a></li>
+                        <li><a href="Loa.html">Loa</a></li>
+                        <li><a href="OpLung.html">Ốp lưng</a></li>
+                    </ul>
+    
+                    <div class="heart" id="showheart">
+                        <div class="title">
+                            <b>SẢN PHẨM YÊU THÍCH</b>
+                        </div>
+                        <div id="tblHeart">
+                            <table>
+                            <tbody id="myheart">
+    
+                            </tbody>
+                        </table>
+                        </div>
+                        
+                    </div>
+    
+                </div>
+                
+    
+            </div>
+    
+            <div id="mainContent">
+                <div class="SP_content">
+                    <img class="banner" src="images/SanPham/banner/pinsac-1200x150.png" alt="">
+                </div>
+                <div class="card_content">
+    
+                    <!-- SP1 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+    
+                        <div class="card_img" style="margin-left: 40px;">
+                            <img style="width: 200px; margin-bottom: 10px;" src="images/SanPham/SacDuPhong/sp1.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">AVA+ Y68</span> <br>
+                            <span id="price">199,000</span><sup>đ</sup>
+                        </div>
+    
+                        <div class="card_note">
+                            <p>
+                                Sản phẩm có lớp vỏ kim loại chắc chắn, bảo vệ lõi pin bên trong an toàn, bền tốt, tránh các
+                                va
+                                chạm
+                                mạnh, đồng thời ít bám bẩn và dễ lau chùi.
+                                Kích thước pin sạc vừa vặn tay cầm của người trưởng thành, dễ dàng đặt gọn trong túi quần
+                                của
+                                bạn,
+                                thật đơn giản để mang theo sử dụng mọi lúc, mọi nơi.
+    
+                            </p>
+    
+                        </div>
+    
+    
+                    </div>
+    
+                    <!-- Sản phẩm 2 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+    
+                        <div class="card_img" style="width: 200px; margin-bottom: 10px; margin-left: 45px;">
+                            <img  src="images/SanPham/SacDuPhong/sp2.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">AVA PJ JP191S</span> <br>
+                            <span id="price">225,000</span><sup>đ</sup>
+                        </div>
+    
+                        <div class="card_note">
+                            <p>
+                                Pin sạc dự phòng Polymer 10.000mAh AVA PJ JP191S tương đương với 1 chiếc smartphone nên bạn
+                                sẽ
+                                cảm
+                                thấy cực thoải mái khi cầm nắm, sử dụng và mang theo. Dòng sản phẩm này đang có 2 phiên bản
+                                màu
+                                xanh
+                                ngọc va xanh Navy cho bạn dễ lựa chọn hơn.
+    
+                            </p>
+    
+                        </div>
+    
+    
+                    </div>
+    
+                    <!-- Sản phảm 3 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+    
+                        <div class="card_img" style="width: 100px; object-fit: cover; margin-left: 80px; margin-top: -60px;">
+                            <img 
+                                src="images/SanPham/SacDuPhong/sp3.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">AVA PJ JP207</span> <br>
+                            <span id="price">225,000</span><sup>đ</sup>
+                        </div>
+    
+                        <div class="card_note">
+                            <p>
+                                Pin sạc dự phòng Polymer 10.000mAh AVA PJ JP207 có trọng lượng chỉ 226g, kết cấu cứng chắc,
+                                cầm
+                                nắm
+                                và di chuyển thoải mái.
+                                Vỏ ngoài bao bọc bởi các gam màu được nam giới và nữ giới yêu thích nhất, đó là màu xám mạnh
+                                mẽ
+                                và
+                                màu hồng ngọt ngào, chọn màu nào cũng có thể hòa hợp và tăng nét thời thượng cho phục trang
+                                của
+                                bạn.
+    
+                            </p>
+    
+                        </div>
+    
+    
+                    </div>
+    
+                    <!-- Sản phẩm 4 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+    
+                        <div class="card_img" style="width: 150px; object-fit: cover; margin-left: 50px;">
+                            <img 
+                                src="images/SanPham/SacDuPhong/sp4.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Xmobile Atela 10</span> <br>
+                            <span id="price">420,000</span><sup>đ</sup>
+                        </div>
+    
+                        <div class="card_note">
+                            <p>
+                                Pin sạc dự phòng Polymer 10000mAh Xmobile Atela 10 Nhôm Xám với chất liệu nhôm cho cảm giác
+                                thoải
+                                mái cầm nắm sử dụng trong thời gian dài.
+                                Đèn LED hiển thị dung lượng trên pin sạc dự phòng Xmobile tiện lợi.
+                                Dung lượng 10000mAh sạc song song 2 thiết bị cùng lúc vô cùng tiện ích.
+    
+                            </p>
+    
+                        </div>
+    
+    
+                    </div>
+    
+    
+    
+    
+                </div>
+    
+                <div class="card_content">
+                    <!-- Sản phẩm 5 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+    
+                        <div class="card_img" style="width: 200px; object-fit: cover; margin-left: 60px; margin-top: -30px;">
+                            <img 
+                                src="images/SanPham/SacDuPhong/sp5.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Xmobile P68D</span> <br>
+                            <span id="price">490,000</span><sup>đ</sup>
+    
+                        </div>
+    
+                        <div class="card_note">
+                            <p>
+                                Pin sạc dự phòng Polymer 10.000mAh Type C PD QC3.0 Xmobile P68D với 2 lựa chọn màu sắc xám
+                                và hồng trẻ trung, đẹp mắt, kích tức tương đương 1 chiếc smartphone dễ dàng mang theo.
+                                Vỏ ngoài pin sạc bọc chất liệu Fabric chống trơn trượt sang đẹp, bảo vệ tốt cho thiết bị.
+                            </p>
+    
+                        </div>
+    
+    
+                    </div>
+                    <!-- Sản phẩm 6 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+    
+                        <div class="card_img" style="width: 200px; object-fit: cover; margin-left: 60px; margin-top: -30px;">
+                            <img 
+                                src="images/SanPham/SacDuPhong/sp6.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Hydrus PA CK01</span> <br>
+                            <span id="price">294,000</span><sup>đ</sup>
+    
+                        </div>
+    
+                        <div class="card_note">
+                            <p>
+                                Hydrus PA CK01 có khả năng tương thích cao với nhiều dòng thiết bị di động, dung lượng pin
+                                và hiệu suất sạc cao cho phép sản phẩm sạc được nhiều lần cho 1 thiết bị hoặc sạc đa dạng
+                                thiết bị, nhờ đó bạn có thể yên tâm trải nghiệm các thiết bị thông minh, nhất là khi đi đến
+                                những vùng không có nguồn điện.
+                            </p>
+    
+                        </div>
+    
+    
+                    </div>
+    
+                    <!-- Sản phẩm 7 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+    
+                        <div class="card_img" style="width: 200px; object-fit: cover; margin-left: 50px; margin-top: -30px;">
+                            <img 
+                                src="images/SanPham/SacDuPhong/sp7.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Hydrus PJ JP196</span> <br>
+                            <span id="price">290,000</span><sup>đ</sup>
+    
+                        </div>
+    
+                        <div class="card_note">
+                            <p>
+                                Sử dụng được với mọi điện thoại, máy tính bảng và thiết bị khác tương thích, Hydrus PJ JP196
+                                bổ sung pin nhanh chóng cho thiết bị yêu thích của bạn, có thể nạp cho iPhone 6s khoảng 3.8
+                                lần, Samsung S9 tầm 2.2 lần.
+                            </p>
+    
+                        </div>
+    
+    
+                    </div>
+    
+                    <!-- Sản phẩm 8 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+    
+                        <div class="card_img" style="width: 200px; object-fit: cover; margin-left: 50px; margin-top: -30px;">
+                            <img 
+                                src="images/SanPham/SacDuPhong/sp8.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">PowerCore Essential Anker A1287</span> <br>
+                            <span id="price">1,330,000</span><sup>đ</sup>
+    
+                        </div>
+    
+                        <div class="card_note">
+                            <p>
+                                Power Delivery được tích hợp trên cổng Type-C có khả năng tinh chỉnh dòng sạc phù hợp với
+                                từng thiết bị, giúp bổ sung năng lượng nhanh chóng, khi sạc cho iPhone 12 đầy 50% chỉ trong
+                                30 phút.
+                            </p>
+    
+                        </div>
+    
+    
+                    </div>
+    
+                </div>
+    
+    
+    
+                <div class="card_content">
+                    <!-- Sản phẩm 9 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+    
+                        <div class="card_img" style="width: 200px; object-fit: cover; margin-left: 50px; margin-top: -30px;">
+                            <img 
+                                src="images/SanPham/SacDuPhong/sp9.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Belkin Pocket Power BPB011</span> <br>
+                            <span id="price">710,000</span><sup>đ</sup>
+    
+                        </div>
+    
+                        <div class="card_note">
+                            <p>
+                                Tốc độ sạc nhanh, an toàn với công nghệ sạc nhanh Power Delivery 15 W
+                                Công nghệ này được hỗ trợ cho cổng Type-C, điều chỉnh dòng sạc phù hợp với từng thiết bị,
+                                đảm bảo quá trình sạc nhanh và bảo vệ pin thiết bị hiệu quả.
+                            </p>
+    
+                        </div>
+    
+    
+                    </div>
+                    <!-- Sản phẩm 10 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+    
+                        <div class="card_img" style="width: 200px; object-fit: cover; margin-left: 55px; margin-top: -30px;">
+                            <img 
+                                src="images/SanPham/SacDuPhong/sp10.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">OPPO PBV02</span> <br>
+                            <span id="price">1,260,000</span><sup>đ</sup>
+    
+                        </div>
+    
+                        <div class="card_note">
+                            <p>
+                                OPPO PBV02 có 2 màu đen hoặc trắng để người dùng lựa chọn theo sở thích. Kích thước mỏng gọn
+                                dễ cầm nắm, dễ bảo quản trong giỏ xách, balo... an toàn với lớp vỏ nhựa nhẹ bền.
+    
+                            </p>
+    
+                        </div>
+    
+    
+                    </div>
+    
+                    <!-- Sản phẩm 11 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+    
+                        <div class="card_img" style="width: 200px; object-fit: cover; margin-left: 55px; margin-top: -30px;">
+                            <img 
+                                src="images/SanPham/SacDuPhong/sp11.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Samsung EB-P3300</span> <br>
+                            <span id="price">891,000</span><sup>đ</sup>
+    
+                        </div>
+    
+                        <div class="card_note">
+                            <p>
+                                Sạc dự phòng Samsung mỏng nhẹ,
+                                hình dạng và kích thước gần như 1 chiếc smartphone thời thượng của Samsung, sạc dự phòng dễ
+                                dàng cầm nắm, dịch chuyển, không choáng chỗ trong túi xách, balo của bạn khi mang theo bên
+                                mình trong hành trang thường nhật.
+                            </p>
+    
+                        </div>
+    
+    
+                    </div>
+    
+                    <!-- Sản phẩm 12 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+    
+                        <div class="card_img" style="width: 200px; object-fit: cover; margin-left: 55px; margin-top: -30px;">
+                            <img 
+                                src="images/SanPham/SacDuPhong/sp12.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">eSaver PJ JP106S</span> <br>
+                            <span id="price">360,000</span><sup>đ</sup>
+    
+                        </div>
+    
+                        <div class="card_note">
+                            <p>
+                                Pin sạc dự phòng Polymer 10.000 mAh có thiết kế vỏ bằng nhôm chắc chắn
+                                Kích thước pin không quá lớn, không gây cồng kềnh hay nặng tay khi sử dụng.
+                                Sạc dự phòng sử dụng lõi pin Polymer chất lượng cao
+                            </p>
+    
+                        </div>
+    
+    
+                    </div>
+    
+                </div>
+            </div>
+        </main>
+    
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="layoutAbout">
+    
+                        <div>
+                            <img src="https://images.radiovolna.net/_files/images/stations/28146/d637d66ace073448b472675811802e4b.png"
+                                height="100px" width="100px">
+                        </div>
+                        <h3>CỬA HÀNG PHỤ KIỆN ĐIỆN THOẠI DKL</h3>
+                        <section>
+                            <span class="iconbtn fas fa-location"></span>
+                            <p>Khu ABC, đường XYU, phường CDE, quận IJK, thành phố QWE</p>
+                        </section>
+    
+                        <div class="clear"></div>
+    
+                        <section>
+                            <span class="iconbtn fas fa-phone"></span>
+                            <p>0123456789</p>
+                        </section>
+    
+                        <div class="clear"></div>
+    
+                        <section>
+                            <span class="iconbtn fas fa-envelope"></span>
+                            <p>DKL@gmail.com</p>
+                        </section>
+    
+                    </div>
+                    <div class="footer-col">
+                        <h4>DKL shop</h4>
+                        <ul>
+                            <li><a href="#">về chúng tôi</a></li>
+                            <li><a href="#">các dịch vụ</a></li>
+                            <li><a href="#">các chính sách</a></li>
+                            <li><a href="#">các chương trình</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Hỗ trợ</h4>
+                        <ul>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">shipping</a></li>
+                            <li><a href="#">trả hàng</a></li>
+                            <li><a href="#">đặt hàng</a></li>
+                            <li><a href="#">thanh toán</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>cửa hàng</h4>
+                        <ul>
+                            <li><a href="#">sạc dự phòng</a></li>
+                            <li><a href="#">ốp lưng</a></li>
+                            <li><a href="#">sạc</a></li>
+                            <li><a href="#">tai nghe</a></li>
+                            <li><a href="#">loa</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Theo dõi chúng tôi</h4>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+    <div class="loader">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <script>
+        const loader = document.querySelector('.loader');
+        const main = document.querySelector('.main');
+        function init(){
+            setTimeout(() => {
+                loader.style.opacity = 0;
+                loader.style.display = 'none';
+                main.style.display = 'block'
+                setTimeout(() => (main.style.opacity = 1), 50);
+            }, 500);
+        }
+        init();
+    </script>
+    <script src="Scrips/scrips.js"></script>
+</body>
+
+</html>

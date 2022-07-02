@@ -1,0 +1,288 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+
+    <title>Sản Phảm</title>
+    
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="Styles/header.css">
+    <link rel="stylesheet" href="Styles/footer.css">
+    <link rel="stylesheet" href="Styles/thanhtien.css">
+    <script>
+        window.onload=function(){
+            showSP();
+           
+        };
+    </script>
+
+</head>
+
+<body>
+    <main class="main">
+        <header>
+            <div id="layoutHeader">
+                <div id="layoutLogo">
+                    <img src="images/logo.png" height="100px" width="100px">
+                    <p style="font-size: 25px; text-shadow: 3px 3px darkgray;"><b>MANG ĐẾN ĐỀU TỐT NHẤT CHO BẠN</b></p>
+                </div>
+    
+                <div class="bodyNav">
+                    <div class="navigation">
+                        <ul>
+                            <li class="list">
+                                <a href="TrangChu.html">
+                                    <span class="icon">
+                                        <ion-icon name="home-outline"></ion-icon>
+                                    </span>
+                                    <span class="text">Trang chủ</span>
+                                </a>
+                            </li>
+                            <li class="list active">
+                                <a href="SanPham.html">
+                                    <span class="icon">
+                                        <ion-icon name="id-card-outline"></ion-icon>
+                                    </span>
+                                    <span class="text">Sản phẩm</span>
+                                </a>
+                            </li>
+                            <li class="list">
+                                <a href="TinTuc.html">
+                                    <span class="icon">
+                                        <ion-icon name="newspaper-outline"></ion-icon>
+                                    </span>
+                                    <span class="text">Tin Tức</span>
+                                </a>
+                            </li>
+                            <li class="list">
+                                <a href="LienHe.html">
+                                    <span class="icon">
+                                        <ion-icon name="mail-unread-outline"></ion-icon>
+                                    </span>
+                                    <span class="text">Liên hệ</span>
+                                </a>
+                            </li>
+                            <li class="list">
+                                <a href="taikhoan.html">
+                                    <span class="icon">
+                                        <ion-icon name="person-outline"></ion-icon>
+                                    </span>
+                                    <span class="text">Tài khoản</span>
+                                </a>
+                            </li>
+                            <li class="list" onclick="showcart();">
+                                <a href="#">
+                                    <span class="icon">
+                                        <ion-icon name="cart-outline"></ion-icon>
+                                    </span>
+                                    <span class="text">Giỏ hàng</span>
+                                </a>
+                            </li>
+                            <div class="indicator">
+    
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+    
+            <script>
+                const list = document.querySelectorAll('.list');
+                function activeLink() {
+                    list.forEach((item) => item.classList.remove('active'));
+                    this.classList.add('active');
+                }
+                list.forEach((item) => item.addEventListener('click', activeLink));
+            </script>
+    
+            <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+            <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        </header>
+        
+        <main id="contentWrapper">
+            <div id="leftSide">
+                <table>
+                    <tr>
+                        <th class="th0">STT</th>
+                        <th class="th1">Sản phẩm</th>
+                        <th class="th2">Số lượng</th>
+                        <th class="th3">Giá</th>
+                        <th class="th2"></th>
+                    </tr>
+                    <tbody id="myOder">
+    
+                    </tbody>
+                </table>
+            </div>
+    
+            <div id="mainContent">
+                <div class="order">
+                    <span>Tổng Đơn Hàng</span>
+                </div>
+                <div class="infoOder">
+                    <table>
+    
+    
+    
+                        <tr>
+                            <td>Tạm tính:</td>
+                            <td class="td1" id="Tam"></td>
+                        </tr>
+                        <tr>
+                            <td>Số lượng đơn hàng</td>
+                            <td class="td1" id="SL">4</td>
+                        </tr>
+                        <tr>
+                            <td>Phí ship (Miễn phí ship >500.000)</td>
+                            <td class="td1" id="Ship"></td>
+                        </tr>
+    
+                        <tr>
+                            <td><b>TỔNG</b></td>
+                            <td class="td2" id="Sum"></td>
+                        </tr>
+    
+                    </table>
+    
+                </div>
+                <div>
+                    <div class="order">
+                        <span>Thông Tin Khách Hàng</span>
+    
+                    </div>
+                    <form action="#" onsubmit="return DatHang(this);";>
+                        <div class="infoOder">
+                            <table>
+                                <tr>
+                                    <td class="namecol">Họ tên:</td>
+                                    <td>
+                                        <input type="text" placeholder="Nguyễn Văn A" id="myname" name="name" required>
+                                    </td>
+    
+                                </tr>
+                                <tr>
+                                    <td class="sdt">Số điện thoại</td>
+                                    <td>
+                                        <input type="tel" name="phone" id="myphone" placeholder="0123456789" required>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="address">Địa chỉ</td>
+                                    <td>
+                                        <textarea name="diachi" id="myaddress" cols="40" rows="3" required></textarea>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td colspan="2" class="btn">
+                                        <button type="submit" >Xác nhận</button>
+                                        <button type="reset">Hủy</button>
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+    
+                    </form>
+                </div>
+    
+    
+            </div>
+        </main>
+    
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="layoutAbout">
+    
+                        <div>
+                            <img src="https://images.radiovolna.net/_files/images/stations/28146/d637d66ace073448b472675811802e4b.png"
+                                height="100px" width="100px">
+                        </div>
+                        <h3>CỬA HÀNG PHỤ KIỆN ĐIỆN THOẠI DKL</h3>
+                        <section>
+                            <span class="iconbtn fas fa-location"></span>
+                            <p>Khu ABC, đường XYU, phường CDE, quận IJK, thành phố QWE</p>
+                        </section>
+    
+                        <div class="clear"></div>
+    
+                        <section>
+                            <span class="iconbtn fas fa-phone"></span>
+                            <p>0123456789</p>
+                        </section>
+    
+                        <div class="clear"></div>
+    
+                        <section>
+                            <span class="iconbtn fas fa-envelope"></span>
+                            <p>DKL@gmail.com</p>
+                        </section>
+    
+                    </div>
+                    <div class="footer-col">
+                        <h4>DKL shop</h4>
+                        <ul>
+                            <li><a href="#">về chúng tôi</a></li>
+                            <li><a href="#">các dịch vụ</a></li>
+                            <li><a href="#">các chính sách</a></li>
+                            <li><a href="#">các chương trình</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Hỗ trợ</h4>
+                        <ul>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">shipping</a></li>
+                            <li><a href="#">trả hàng</a></li>
+                            <li><a href="#">đặt hàng</a></li>
+                            <li><a href="#">thanh toán</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>cửa hàng</h4>
+                        <ul>
+                            <li><a href="#">sạc dự phòng</a></li>
+                            <li><a href="#">ốp lưng</a></li>
+                            <li><a href="#">sạc</a></li>
+                            <li><a href="#">tai nghe</a></li>
+                            <li><a href="#">loa</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Theo dõi chúng tôi</h4>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+    <div class="loader">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <script>
+        const loader = document.querySelector('.loader');
+        const main = document.querySelector('.main');
+        function init(){
+            setTimeout(() => {
+                loader.style.opacity = 0;
+                loader.style.display = 'none';
+                main.style.display = 'block'
+                setTimeout(() => (main.style.opacity = 1), 50);
+            }, 500);
+        }
+        init();
+    </script>
+    <script src="Scrips/scrips.js"></script>
+</body>
+
+</html>

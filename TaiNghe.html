@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Tai nghe</title>
+
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="Styles/header.css">
+    <link rel="stylesheet" href="Styles/footer.css">
+    <link rel="stylesheet" href="Styles/sanpham.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script>
+        window.onload = function () {
+            numberSP();
+            showHeart();
+            showRedHeart();
+        };
+    </script>
+
+</head>
+
+<body>
+    <main class="main">
+        <header>
+            <div id="layoutHeader">
+                <div id="layoutLogo">
+                    <img src="images/logo.png" height="100px" width="100px">
+                    <p style="font-size: 25px; text-shadow: 3px 3px darkgray;"><b>MANG ĐẾN ĐỀU TỐT NHẤT CHO BẠN</b></p>
+                </div>
+
+                <div class="bodyNav">
+                    <div class="navigation">
+                        <ul>
+                            <li class="list">
+                                <a href="TrangChu.html">
+                                    <span class="icon">
+                                        <ion-icon name="home-outline"></ion-icon>
+                                    </span>
+                                    <span class="text">Trang chủ</span>
+                                </a>
+                            </li>
+                            <li class="list active">
+                                <a href="SanPham.html">
+                                    <span class="icon">
+                                        <ion-icon name="id-card-outline"></ion-icon>
+                                    </span>
+                                    <span class="text">Sản phẩm</span>
+                                </a>
+                            </li>
+                            <li class="list">
+                                <a href="TinTuc.html">
+                                    <span class="icon">
+                                        <ion-icon name="newspaper-outline"></ion-icon>
+                                    </span>
+                                    <span class="text">Tin Tức</span>
+                                </a>
+                            </li>
+                            <li class="list">
+                                <a href="LienHe.html">
+                                    <span class="icon">
+                                        <ion-icon name="mail-unread-outline"></ion-icon>
+                                    </span>
+                                    <span class="text">Liên hệ</span>
+                                </a>
+                            </li>
+                            <li class="list">
+                                <a href="taikhoan.html">
+                                    <span class="icon">
+                                        <ion-icon name="person-outline"></ion-icon>
+                                    </span>
+                                    <span class="text">Tài khoản</span>
+                                </a>
+                            </li>
+
+                            <span class="icCart">
+                                <ion-icon name="cart-outline" onclick="showcart();"></ion-icon><sup
+                                    id="numberCart">0</sup>
+                            </span>
+
+                            <div class="indicator"></div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                const list = document.querySelectorAll('.list');
+                function activeLink() {
+                    list.forEach((item) => item.classList.remove('active'));
+                    this.classList.add('active');
+                }
+                list.forEach((item) => item.addEventListener('click', activeLink));
+            </script>
+
+            <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+            <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        </header>
+        <main id="contentWrapper">
+            <script>
+                $(document).ready(function () {
+                    $('.icon-content').click(function () {
+
+                        $('.leftMenu').slideToggle();
+                    });
+                })
+            </script>
+
+            <div class="icon-content">
+                <i class="bx bx-menu" id="icon-menu"></i>
+            </div>
+            <div class="cart-container" id="show-cart">
+                <table>
+                    <tr>
+                        <th style="width: 50px;">STT</th>
+                        <th>Sản phẩm</th>
+
+                        <th>Thành tiền</th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tbody id="mycart">
+
+                    </tbody>
+
+
+                </table>
+                <div>
+                    <a href="ThanhToan.html"><button>Thanh toán</button></a>
+                </div>
+            </div>
+            <div id="leftSide">
+                <div class="leftMenu">
+                    <ul>
+                        <li><a href="SanPham.html">Sản phẩm Hot <i style="color: orange; font-size: 25px;"
+                                    class='bx bxs-hot'></i></a></li>
+                        <li> <a href="SacDuPhong.html">Sạc dự phòng</a></li>
+                        <li><a href="CapSac.html">Cáp sạc</a></li>
+                        <li style="background-color: rgb(129, 183, 233);"><a href="TaiNghe.html"
+                                style="color: black;">Tai nghe</a></li>
+                        <li><a href="Loa.html">Loa</a></li>
+                        <li><a href="OpLung.html">Ốp lưng</a></li>
+                    </ul>
+                    <div class="heart" id="showheart">
+                        <div class="title">
+                            <b>SẢN PHẨM YÊU THÍCH</b>
+                        </div>
+                        <div id="tblHeart">
+                            <table>
+                                <tbody id="myheart">
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div id="mainContent">
+                <div class="SP_content">
+                    <img class="banner" src="images/SanPham/banner/taignhe-1200x150.png" alt="">
+                </div>
+                <div class="card_content">
+
+
+                    <!-- SP 1 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+
+                        <div class="card_img"
+                            style="width: 200px; object-fit: cover; margin-left: 30px; margin-top: -30px; ">
+                            <img src="images/SanPham/TaiNghe/sp1.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">AirPods Pro MagSafe</span> <br>
+                            <span id="price">5,490,000</span><sup>đ</sup>
+
+                        </div>
+                        <div class="card_note">
+                            <p>
+                                Tai nghe Bluetooth AirPods Pro MagSafe Charge Apple MLWK3 trắng được chế tác với vẻ
+                                ngoài
+                                tinh
+                                giản, gam màu trắng trẻ trung, sáng đẹp, phối hợp tuyệt vời với mọi trang phục từ đời
+                                thường
+                                đến
+                                công sở, dự tiệc của bạn.
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                    <!-- SP2 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+
+                        <div class="card_img"
+                            style="width: 200px; object-fit: cover; margin-left: 35px; margin-top: -30px;">
+                            <img src="images/SanPham/TaiNghe/sp2.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Samsung Galaxy Buds+ R175</span> <br>
+                            <span id="price">1,490,000</span><sup>đ</sup>
+                        </div>
+
+                        <div class="card_note">
+                            <p>
+                                Housing có bề mặt chất liệu nhựa bóng bền đẹp,
+                                nút tai thiết kế hướng thẳng vào tai cho độ kín cao, nghe rõ âm thanh hơn. Hộp sạc cũng
+                                làm
+                                từ
+                                nhựa bóng, trọng lượng 6.3 g, kích thước nhỏ nhắn, nằm gọn trong tay bạn, dễ cho vào túi
+                                quần
+
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                    <!-- SP3 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+
+                        <div class="card_img"
+                            style="width: 200px; object-fit: cover; margin-left: 50px; margin-top: -30px;">
+                            <img src="images/SanPham/TaiNghe/sp3.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">LG Tone Free HBS-FN6</span> <br>
+                            <span id="price">1,290,000</span><sup>đ</sup>
+                        </div>
+
+                        <div class="card_note">
+                            <p>
+
+                                Kích thước nhỏ gọn với hộp sạc vừa vặn trong
+                                lòng
+                                bàn tay, dễ dàng để bạn mang theo đến mọi nơi.
+                                Cấu tạo kín khít với tai cùng đệm tai chất liệu silicone cao cấp không gây kích ứng giúp
+                                chống
+                                ồn hiệu quả, tạo cảm giác thoải mái suốt ngày dài.
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                    <!-- SP 4 -->
+
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+
+                        <div class="card_img"
+                            style="width: 200px; object-fit: cover; margin-left: 55px; margin-top: -30px;">
+                            <img src="images/SanPham/TaiNghe/sp4.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Mozard TS13</span> <br>
+                            <span id="price">390,000</span><sup>đ</sup>
+                        </div>
+
+                        <div class="card_note">
+                            <p>
+                                Là mẫu tai nghe không dây thời thượng, Mozard TS13 tạo ấn tượng mạnh với củ tai nhỏ nhẹ,
+                                cho
+                                thao tác đeo, sử dụng cực thoải mái, tiện lợi. Trọng lượng chỉ 39 gam nên vô cùng thích
+                                hợp
+                                để
+                                mang theo bên mình đi bất kỳ đâu.
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                </div>
+
+                <div class="card_content">
+                    <!-- Sản phẩm 5 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+
+                        <div class="card_img"
+                            style="width: 200px; object-fit: cover; margin-left: 60px; margin-top: -30px;">
+                            <img src="images/SanPham/TaiNghe/sp5.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">AirPods 2</span> <br>
+                            <span id="price">3,990,000</span><sup>đ</sup>
+
+                        </div>
+
+                        <div class="card_note">
+                            <p>
+                                Tai nghe Bluetooth AirPods 2 Apple MV7N2 Trắng vẫn giữ cho mình thiết kế hiện đại, cao
+                                cấp,
+                                hợp thời trang. Trang bị chip H1 giúp tai nghe kết nối ổn định, nhanh chóng và tiết kiệm
+                                pin
+                                hơn.
+                            </p>
+
+                        </div>
+
+
+                    </div>
+                    <!-- Sản phẩm 6 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+
+                        <div class="card_img"
+                            style="width: 200px; object-fit: cover; margin-left: 60px; margin-top: -30px;">
+                            <img src="images/SanPham/TaiNghe/sp6.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name"> AirPods 3</span> <br>
+                            <span id="price">4,990,000</span><sup>đ</sup>
+
+                        </div>
+
+                        <div class="card_note">
+                            <p>
+                                Airpods 3 có thiết kế tương tự như AirPods Pro nhưng không còn phần eartips, đường viền
+                                và
+                                thân ngắn hơn cho âm thanh truyền tải đến tai tối ưu. Bề mặt tai nghe Bluetooth Apple
+                                phủ
+                                sắc trắng thời thượng, được làm từ các vật liệu tái chế với độ bền cao, bảo vệ môi
+                                trường
+                                sống của con người.
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                    <!-- Sản phẩm 7 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+
+                        <div class="card_img"
+                            style="width: 200px; object-fit: cover; margin-left: 50px; margin-top: -30px;">
+                            <img src="images/SanPham/TaiNghe/sp7.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">OPPO ENCO Air</span> <br>
+                            <span id="price">1,431,000</span><sup>đ</sup>
+
+                        </div>
+
+                        <div class="card_note">
+                            <p>
+                                Mẫu tai nghe earbuds bề mặt phủ sắc trắng thuần khiết tựa như làn sương sớm mai cho cảm
+                                giác
+                                rất thanh nhã, dễ chịu. Kết cấu tai nghe gọn đẹp, chạm khắc tinh tế, thiết kế siêu nhẹ,
+                                đeo
+                                như không đeo.
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                    <!-- Sản phẩm 8 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+
+                        <div class="card_img"
+                            style="width: 200px; object-fit: cover; margin-left: 50px; margin-top: -30px;">
+                            <img src="images/SanPham/TaiNghe/sp8.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">LG TONE-FP5</span> <br>
+                            <span id="price">1,990,000</span><sup>đ</sup>
+
+                        </div>
+
+                        <div class="card_note">
+                            <p>
+                                Hộp sạc tai nghe LG được chỉnh chu với độ hoàn thiện cao, đặt housing kiểu nằm ngang dễ
+                                nhấc
+                                và đặt vào, sạc và bảo vệ tối ưu. 2 phiên bản thời trang gồm trắng nhã nhặn và đen lịch
+                                lãm.
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="card_content">
+                    <!-- Sản phẩm 9 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+
+                        <div class="card_img"
+                            style="width: 200px; object-fit: cover; margin-left: 60px; margin-top: -30px;">
+                            <img src="images/SanPham/TaiNghe/sp9.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Mozard DS510-WB</span> <br>
+                            <span id="price">99,000</span><sup>đ</sup>
+
+                        </div>
+
+                        <div class="card_note">
+                            <p>
+                                Tai nghe EP Mozard DS510-WB Xanh có thiết kế mới mẽ, hợp thời trang
+                                Tai nghe có dây dài 1.2 m thoải mái để vừa dùng máy vừa nghe nhạc. </p>
+
+                        </div>
+
+
+                    </div>
+                    <!-- Sản phẩm 10 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+
+                        <div class="card_img"
+                            style="width: 200px; object-fit: cover; margin-left: 50px; margin-top: -30px;">
+                            <img src="images/SanPham/TaiNghe/sp10.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Kanen IP-225</span> <br>
+                            <span id="price">99,000</span><sup>đ</sup>
+
+                        </div>
+
+                        <div class="card_note">
+                            <p>
+                                Tai nghe có dây thương hiệu Kanen, có màu sắc trẻ trung, thiết kế nhỏ gọn, tiện lợi
+                                Jack cắm của tai nghe EP Kanen IP-225 tương thích với nhiều thiết bị hiện nay như điên
+                                thoại, laptop, máy tính bảng...
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                    <!-- Sản phẩm 11 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+
+                        <div class="card_img"
+                            style="width: 200px; object-fit: cover; margin-left: 50px; margin-top: -30px;">
+                            <img src="images/SanPham/TaiNghe/sp11.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Kanen IP-350</span> <br>
+                            <span id="price">97,000</span><sup>đ</sup>
+
+                        </div>
+
+                        <div class="card_note">
+                            <p>
+                                Tai nghe chụp tai Kanen IP-350 thiết kế trẻ trung, màu sắc tươi sáng phù hợp với mọi bạn
+                                trẻ.
+                                Tai nghe sử dụng được cho điện thoại, máy tính bảng, laptop, máy nghe nhạc...
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                    <!-- Sản phẩm 12 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+
+                        <div class="card_img"
+                            style="width: 200px; object-fit: cover; margin-left: 50px; margin-top: -30px;">
+                            <img src="images/SanPham/TaiNghe/sp12.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Kanen IP-892</span> <br>
+                            <span id="price">227,000</span><sup>đ</sup>
+                            <br>
+                            227.000<sup>đ</sup>
+                        </div>
+
+                        <div class="card_note">
+                            <p>
+                                Lớp đệm tai êm và dày, giúp đeo tai thoải mái và hạn chế bị rách.
+                                Có thể kéo dãn tai nghe 4 cm để vừa vặn hơn khi sử dụng.
+                                Tương thích với hầu hết điện thoại hiện nay.
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="layoutAbout">
+
+                        <div>
+                            <img src="https://images.radiovolna.net/_files/images/stations/28146/d637d66ace073448b472675811802e4b.png"
+                                height="100px" width="100px">
+                        </div>
+                        <h3>CỬA HÀNG PHỤ KIỆN ĐIỆN THOẠI DKL</h3>
+                        <section>
+                            <span class="iconbtn fas fa-location"></span>
+                            <p>Khu ABC, đường XYU, phường CDE, quận IJK, thành phố QWE</p>
+                        </section>
+
+                        <div class="clear"></div>
+
+                        <section>
+                            <span class="iconbtn fas fa-phone"></span>
+                            <p>0123456789</p>
+                        </section>
+
+                        <div class="clear"></div>
+
+                        <section>
+                            <span class="iconbtn fas fa-envelope"></span>
+                            <p>DKL@gmail.com</p>
+                        </section>
+
+                    </div>
+                    <div class="footer-col">
+                        <h4>DKL shop</h4>
+                        <ul>
+                            <li><a href="#">về chúng tôi</a></li>
+                            <li><a href="#">các dịch vụ</a></li>
+                            <li><a href="#">các chính sách</a></li>
+                            <li><a href="#">các chương trình</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Hỗ trợ</h4>
+                        <ul>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">shipping</a></li>
+                            <li><a href="#">trả hàng</a></li>
+                            <li><a href="#">đặt hàng</a></li>
+                            <li><a href="#">thanh toán</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>cửa hàng</h4>
+                        <ul>
+                            <li><a href="#">sạc dự phòng</a></li>
+                            <li><a href="#">ốp lưng</a></li>
+                            <li><a href="#">sạc</a></li>
+                            <li><a href="#">tai nghe</a></li>
+                            <li><a href="#">loa</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Theo dõi chúng tôi</h4>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+    <div class="loader">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <script>
+        const loader = document.querySelector('.loader');
+        const main = document.querySelector('.main');
+        function init() {
+            setTimeout(() => {
+                loader.style.opacity = 0;
+                loader.style.display = 'none';
+                main.style.display = 'block'
+                setTimeout(() => (main.style.opacity = 1), 50);
+            }, 500);
+        }
+        init();
+    </script>
+    <script src="Scrips/scrips.js"></script>
+</body>
+
+</html>

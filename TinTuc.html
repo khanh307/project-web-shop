@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tin Tức</title>
+    <link rel="stylesheet" href="Styles/tintuc.css">
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <main class="main">
+        <header>
+            <img src="images/bgnews.jpg" class="banner" alt="">
+            <a href="#" class="logo">Tin Tức</a>
+            <div class="toggle"></div>
+            <nav>
+                <ul>
+                    <li><a href="TrangChu.html">Trang Chủ</a></li>
+                    <li><a href="SanPham.html">Sản Phẩm</a></li>
+                    <li><a href="TinTuc.html">Tin Tức</a></li>
+                    <li><a href="LienHe.html">Liên Hệ</a></li>
+                    <li><a href="taikhoan.html">Tài Khoản</a></li>
+                </ul>
+            </nav>
+        </header>
+    
+        <main>
+            <div class="control">
+                <button id="btnSac" onclick="checkClick1()">Sạc Dự Phòng</button>
+                <button id="btnOpLung" onclick="checkClick2()">Ốp Lưng</button>
+                <button id="btnCapSac" onclick="checkClick3()">Cáp Sạc</button>
+                <button id="btnTaiNghe" onclick="checkClick4()">Tai Nghe</button>
+                <button id="btnLoa" onclick="checkClick5()">Loa</button>
+            </div>
+            <div id="divsacduphong">
+                <section>
+                    <h2>Chọn sạc dự phòng nào để đồng hành trong những chuyến đi dài?</h2>
+                    <h3>Anker PowerCore Essential</h3>
+                    <p>Pin sạc dự phòng Anker PowerCore Essential nặng 350g với dung lượng 20.000mAh cho phép sạc thiết bị
+                        lạ nhiều lần, hoặc sạc đồng thời 2 điện thoại thông minh nhờ các cổng USB-A. Các cổng microUSB và
+                        USB-C được thiết kế dành riêng để sạc pin. Pin cung cấp công suất đầu ra là 3A và giảm còn 2,4A nếu
+                        cả 2 cổng sạc được sử dụng (đầu ra tối đa là 15W), nhưng sẽ không đủ để sạc máy tính.</p>
+                    <br>
+                    <p>Muốn kéo dài thời gian hoạt động của thiết bị di động trong suốt cuộc hành trình dài là tâm lý chung
+                        của nhiều người trong những chuyến đi xa, du lịch khám phá mà không ở gần nguồn điện. Các mẫu pin
+                        sạc dự phòng chất lượng tốt sẽ hóa giải nỗi lo lắng, tạo sự yên tâm cho người dùng.</p>
+                    <div class="divImg">
+                        <img src="images/TrangChu/sacduphong.webp" alt="">
+                    </div>
+                </section>
+                <section>
+                    <h3>Catlyn</h3>
+                    <p>Là một trong những viên pin dự phòng nhỏ gọn và nhẹ nhất trên thị trường hiện nay, pin sạc dự phòng
+                        Catlyn cung cấp dung lượng 10.000 mAh đủ để sạc bộ điều khiển Nintendo Switch 2 lần, hoặc gần 3 lần
+                        đầy điện thoại thông minh qua cổng USB-C. Pin có 2 cổng, 1 cổng là Quick Charge 3 USB-A 18W (3A) và
+                        1 cổng USB-C 18W (3A). Pin này có thể sạc đồng thời 2 thiết bị.</p>
+                    <div class="divImg">
+                        <img src="images/TinTuc/news1.jpg" alt="">
+                    </div>
+                </section>
+                <section>
+                    <h3>Anker PowerCore</h3>
+                    <p>Đối với những người chưa sử dụng USB C, pin Anker PowerCore 13.000 mAh rất nhỏ gọn và nhẹ, có thể sạc
+                        điện thoại thông minh/máy tính bảng với hai cổng USB A "cổ điển". 2 cổng USB cung cấp 2,4A này đều
+                        tương thích với công nghệ PowerIQ để sạc nhanh. Người dùng cũng có thể sạc đồng thời 2 thiết bị qua
+                        pin sạc Anker PowerCore.</p>
+                    <div class="divImg">
+                        <img src="images/TinTuc/news2.jpg" alt="">
+                    </div>
+                </section>
+                <section>
+                    <h3>Sạc cảm ứng Samsung EB-U1200CS</h3>
+                    <p>Samsung bán rất chạy pin EB-U1200CS 10.000 mAh với hai màu hồng và bạc. Pin có kích thước nhỏ gọn (15
+                        x 7,1 x 1,5 cm) và chỉ nặng 234g cho phép người dùng dễ dàng bỏ vào túi áo khoác bên trong. Pin có 1
+                        cổng USB-A, một cổng USB-C và cả chức năng sạc cảm ứng. Đây là thiết bị hoạt động ít tiêu tốn nhiều
+                        năng lượng hơn so với thiết bị có dây để sạc điện thoại thông minh. Khi sạc nhanh, Samsung
+                        EB-U1200CS cung cấp công suất 9W.</p>
+                    <div class="divImg">
+                        <img src="images/TinTuc/news3.jpg" alt="">
+                    </div>
+                </section>
+                <section>
+                    <h3>Litionite Titan</h3>
+                    <p>Litionite Titan là pin sạc ngoài nhưng được đánh giá như 1 “máy phát điện” dựa trên dung lượng lớn
+                        (140.000mAh và 500W). Với trọng lượng 6 kg và kích thước 290 x 155 x 190 mm, Litionite Titan có 2 ổ
+                        cắm AC, 3 cổng USB-A, 1 cổng USB-C PD, 3 đầu ra DC và một đầu vào DC.</p>
+                    <div class="divImg">
+                        <img src="images/TinTuc/news4.jpg" alt="">
+                    </div>
+                </section>
+            </div>
+    
+            <div id="divoplung">
+                <section>
+                    <h2>Ưu điểm của ốp lưng điện thoại</h2>
+                    <h3>An toàn, chống trầy xước</h3>
+                    <p>Đối với những chiếc “dế yêu” đáng giá hàng triệu thậm chí là chục triệu đồng thì người sở hữu nó luôn
+                        muốn nó trong tình trạng mới và không bị trầy xước. Chính vì thế việc “khoác” lên một chiếc ốp hoặc
+                        bao da sẽ giảm thiểu đi rất nhiều nguy cơ bị trầy xước và nứt mẻ khi va đập.</p>
+                    <div class="divImg">
+                        <img src="images/TinTuc/news5.jpg" alt="">
+                    </div>
+                </section>
+                <section>
+                    <h3>Thay đổi màu sắc cho “dế yêu”</h3>
+                    <p>Nếu một ngày nào đó bạn cảm thấy nhàm chán với màu sắc trên “dế yêu” của mình thì bạn có thể lựa chọn
+                        những chiếc ốp lưng nhiều màu sắc, họa tiết khác nhau để “make up” cho chúng. Do nhu cầu sử dụng ốp
+                        lưng, bao da đang được nhiều người quan tâm nên các nhà sản xuất luôn không ngừng cho ra những mẫu
+                        mã, kiểu dáng và nhiều màu sắc phong phú để người dùng có thể thoái mái hơn trong việc lựa chọn.</p>
+                    <div class="divImg">
+                        <img src="images/TinTuc/news6.jpg" alt="">
+                    </div>
+                </section>
+                <section>
+                    <h3>Giảm nguy cơ tổn hại đến smartphone khi vô tình làm rơi</h3>
+                    <p>Vô tình đánh rơi điện thoại trong quá trình cầm hoặc sử dụng điện thoại là một điều khó tránh khỏi.
+                        Do vậy, nếu chiếc smartphone được bao bọc kỹ lưỡng bởi flipcover sẽ giảm được rất nhiều tổn hại như:
+                        mẻ cạnh hông, vỡ màn hình, nứt mặt kính (nếu mặt sau được làm bằng kính)…</p>
+                    <div class="divImg">
+                        <img src="images/TinTuc/news7.jpg" alt="">
+                    </div>
+                </section>
+                <section>
+                    <h3>Sử dụng ốp lưng như một món đồ thời trang</h3>
+                    <p>Đối với không ít các bạn trẻ, việc sở hữu ốp lưng thật “cute” thật “cool” với những hình thù lạ mắt
+                        được xem như những món trang sức thời trang cho chiếc “dế yêu” của mình.</p>
+                    <div class="divImg">
+                        <img src="images/TinTuc/news8.jpg" alt="">
+                    </div>
+                </section>
+            </div>
+    
+            <div id="divcapsac">
+                <section>
+                    <h2>Cách lựa chọn cáp sạc phù hợp với điện thoại - Xem ngay nếu chưa biết</h2>
+                    <h3>Xác định cổng sạc mà điện thoại bạn đang sử dụng</h3>
+                    <p>Micro USB (Universal Serial Bus) là phiên bản thu nhỏ của USB-A, dùng để kết nối với các thiết bị di
+                        động nhỏ gọn như smartphone, máy nghe nhạc MP3, tai nghe không dây, loa hay thiết bị GPS, máy ảnh kỹ
+                        thuật số, máy in,... Mặc dù kích thước nhỏ gọn nhưng tốc độ truyền tải của loại cổng sạc này hầu như
+                        vẫn không thay đổi.</p>
+                    <div class="divImg">
+                        <img src="images/TinTuc/news9.jpg" alt="">
+                    </div>
+                    <p>USB - Type C (USB - C) được biết đến là phiên bản nâng cấp của cổng Micro USB. Đây là loại cổng kết
+                        nối “tất cả trong một” bởi lẽ nó có khả năng thay thế cho 5 loại kết nối gồm HDMI, VGA, USB,
+                        DisplayPort, cổng sạc và còn nhiều kết nối khác.</p>
+                    <div class="divImg">
+                        <img src="images/TinTuc/news10.jpg" alt="">
+                    </div>
+                    <p>Được phát triển để dành riêng cho các sản phẩm Apple, cáp sạc Lightning được biết đến với nhiều tác
+                        dụng ngoài sạc như truyền dữ liệu, chiếu màn hình, cổng tai nghe,… và đặc biệt có thể cắm hai chiều
+                        giống USB – Type C với khả năng kết nối ổn định.</p>
+                    <div class="divImg">
+                        <img src="images/TinTuc/news11.jpg" alt="">
+                    </div>
+                </section>
+                <section>
+                    <h3>Chọn chiều dài dây phù hợp nhu cầu</h3>
+                    <p>Cáp sạc dài 20 – 40cm: Là loại có kích thước khá ngắn nên sẽ phù hợp với các loại sạc dự phòng.</p>
+                    <br>
+                    <p>Cáp sạc dài 1m: Đây là loại dây sạc phổ biến nhất nên hầu như thường được sử dụng cho các thiết bị
+                        như điện thoại, máy tính bảng,... thông thường.</p>
+                    <br>
+                    <p>Cáp sạc dài 2m: Đây là loại cáp có lợi thế về chiều dài nên sẽ phù hợp để sạc hay truyền dữ liệu ở
+                        khoảng cách xa, chẳng hạn như bàn làm việc công ty hay bất kỳ vị trí nào khá xa so với nguồn điện.
+                    </p>
+                    <div class="divImg">
+                        <img src="images/TinTuc/news12.jpg" alt="">
+                    </div>
+                </section>
+                <section>
+                    <h3>Lựa chọn thương hiệu uy tín, chất lượng</h3>
+                    <p>Anker PowerLine + II: Cung cấp độ bền tuyệt vời và tốc độ sạc nhanh, là một trong những cáp sạc tốt
+                        nhất nói chung hiện nay.</p>
+                    <br>
+                    <p>Native Union: Được biết đến là loại cáp sạc dài tiện lợi nhất, cộng với đó là độ bền cao, với trọng
+                        lượng đáng kể để giữ cho thiết bị của bạn an toàn.</p>
+                    <br>
+                    <p>Cáp sạc 3 đầu Anker Powerline: Hỗ trợ cả 3 loại Lightning, USB-C, và Micro USB ngay trong một cáp. Vì
+                        vậy mà bạn có thể sử dụng cho bất cứ loại thiết bị nào.</p>
+                    <br>
+                    <p>Đừng quá chú trọng Made in China. Có thể bạn sẽ thường cảm thấy e ngại khi nhìn thấy dòng chữ Made in
+                        China xuất hiện trên các sản phẩm cáp sạc hay adapter và kể cả điện thoại. Tuy nhiên, bạn nên nhớ
+                        rằng Trung Quốc là một cường quốc công nghiệp trong lĩnh vực điện tử nên không phải họ chỉ sản xuất
+                        ra những thương hiệu kém chất lượng. Ngược lại, họ có hàng loạt các thương hiệu tên tuổi, chất lượng
+                        cao. Chưa nói đến những hãng tên tuổi trên thế giới lại đặt nhà máy sản xuất tại đất nước này.</p>
+                    <div class="divImg">
+                        <img src="images/TinTuc/news13.jpg" alt="">
+                    </div>
+                </section>
+                <section>
+                    <h3>Quan tâm đến thiết kế của dây cáp</h3>
+                    <p>Một yếu tố bạn cần quan tâm khi mua cáp sạc đó chính là thiết kế của dây cáp. Cụ thể, bạn cần quan
+                        tâm đến chất liệu vỏ, lõi cáp, chân tiếp xúc. Hãy chú ý đến các chất liệu vỏ tốt với độ bền cùng
+                        những tính năng như: Chống đứt, chống rối, chống chuột cắn, chịu được sức nặng,…</p>
+                    <br>
+                    <p>Trong khi đó, chân tiếp xúc và lõi cáp cũng là các yếu tố quan trọng. Chân tiếp xúc được mạ vàng sẽ
+                        giảm thiểu sự ăn mòn và giúp tăng tuổi thọ dây cáp. Ngoài ra, nó cũng hỗ trợ cho tín hiệu ổn định
+                        hơn, không bị chập chờn hoặc ngắt đường truyền tín hiệu khi đang sử dụng.</p>
+                    <div class="divImg">
+                        <img src="images/TinTuc/news14.jpg" alt="">
+                    </div>
+                </section>
+            </div>
+    
+            <div id="divtainghe">
+                <section>
+                    <h2>4 tiêu chí khi chọn tai nghe True Wireless</h2>
+                    <h3>Thiết kế vừa khít tai</h3>
+                    <p>Để sử dụng trong thời gian dài và khi di chuyển, sự vừa vặn với kích thước tai là yếu tố đầu tiên mà
+                        người dùng cần kiểm tra. Sản phẩm quá lớn thì không thể tận hưởng trọn vẹn âm thanh, khi quá nhỏ lại
+                        gây lỏng lẻo, dễ rơi mất.</p>
+                    <br>
+                    <p>Nắm rõ vấn đề này, Samsung sản xuất dòng tai nghe Buds Pro với thiết kế in-ear đi kèm 3 kích cỡ nút
+                        để phù hợp với nhiều dạng ống tai khác nhau. Đây là điểm đặc biệt của sản phẩm, thể hiện sự nhạy cảm
+                        của các kỹ sư với thói quen người dùng. Kích thước của Buds Pro khá nhỏ gọn, nằm gần kín trong tai
+                        và không lộ ra ngoài, từ đó mang đến cảm giác thoải mái hơn.</p>
+                    <div class="divImg">
+                        <img src="images/TinTuc/news15.jpg" alt="">
+                    </div>
+                </section>
+                <section>
+                    <h3>Tương thích nhiều hệ điều hành</h3>
+                    <p>Sẽ dễ dàng lựa chọn nếu bạn chỉ sử dụng một điện thoại. Nhưng nếu dùng nhiều smartphone để đáp ứng
+                        nhu cầu công việc, hoặc muốn lên đời, chuyển sang hệ điều hành khác, khả năng tương thích cũng cần
+                        chú trọng.</p>
+                    <br>
+                    <p>Vì vậy, tai nghe True Wireless của Samsung với khả năng hỗ trợ tất cả thiết bị di động có kết nối
+                        bluetooth là sản phẩm đáng sở hữu. Người dùng có thể cài ứng dụng Galaxy Wear để tùy chỉnh thông số
+                        và tính năng của sản phẩm.</p>
+                    <br>
+                    <p>Riêng với sản phẩm cùng hãng, Buds Pro sẽ hỗ trợ tối đa tính năng như micro thu âm từ xa, ghi âm chất
+                        lượng cao...</p>
+                    <div class="divImg">
+                        <img src="images/TinTuc/news16.jpg" alt="">
+                    </div>
+                </section>
+                <section>
+                    <h3>Thời lượng pin</h3>
+                    <p>Ngoài các yếu tố trên, viên pin của thiết bị cũng quyết định chất lượng trải nghiệm. Với nhu cầu sử
+                        dụng trong thời gian dài, viên pin lớn là điểm cộng với hầu hết người dùng.</p>
+                    <br>
+                    <p>Theo công bố của hãng, phiên bản Buds Pro sau sạc đầy có thể sử dụng suốt 8 tiếng. Nếu bật ANC, người
+                        dùng có thể dùng liên tục 5 tiếng. Bộ sạc nhanh cung cấp thêm một tiếng sử dụng chỉ sau 5 phút sạc.
+                    </p>
+                    <div class="divImg">
+                        <img src="images/TinTuc/news17.jpg" alt="">
+                    </div>
+                </section>
+            </div>
+    
+            <div id="divloa">
+                <section>
+                    <h2>Loa âm thanh vòm không dây đắt nhất của Sony</h2>
+                    <p>HT-A9 là hệ thống loa đắt nhất tại Việt Nam của Sony với 4 loa rời kết nối không dây tạo âm thanh vòm và giá 48,5 triệu đồng.</p>
+                    <br>
+                    <p>Trong khi Samsung theo đuổi dòng loa thanh kết hợp hai loa vệ tinh để tạo âm thanh vòm trên mẫu Q950A, Sony sử dụng bốn loa hình trụ giống nhau cho giải pháp tương tự. Cả bốn có thiết kế, chức năng tương tự, được đặt ở bốn góc tùy không gian và được điều khiển, kết nối không dây tới bộ trung tâm.</p>
+                    <div class="divImg">
+                        <img src="images/TinTuc/news18.jpg" alt="">
+                    </div>
+                    <p>Hệ thống mới của Sony sử dụng microphone kép trong mỗi loa để phân tích độ cao, vị trí tương đối giữa các loa để đưa ra cài đặt mô phỏng phù hợp không gian. Sản phẩm dùng công nghệ 360 Spatial Sound Mapping để tạo 12 loa ảo từ 12 màng loa thật nằm trong bốn loa vật lý. Âm thanh được phát trực tiếp hoặc dội trần, tường để tạm hiệu ứng âm thanh vòm.</p>
+                    <br>
+                    <p>Mỗi loa đơn sử dụng thiết kế Omnidirectional Block với khối trụ, phát nhạc xung quanh thân. Riêng phần lưng dạng phẳng để đặt sát tường. Bên trong mỗi loa tích hợp 2 củ loa X-Balanced hình hộp chữ nhật để tối đa diện tích màng loa, tạo áp suất âm thanh cho âm bass tốt hơn.</p>
+                    <br>
+                    <p>Hộp điều khiển có kích thước tương đương một set-top-box, kết nối với TV qua HDMI. Người dùng sẽ thiết lập loa qua màn hình TV. Hệ thống tương thích với TV Sony qua trình cài đặt Easy Setup. HT-A9 cũng hỗ trợ kết nối và nghe nhạc thông qua Chromecast, AirPlay 2 hoặc Spotify Connect, tương thích Google Assistant, Amazon Alexa.</p>
+                    <div class="divImg">
+                        <img src="images/TinTuc/news19.jpg" alt="">
+                    </div>
+                    <p>Ngoài HA-A9, Sony cũng giới thiệu dòng loa thanh HT-A7000, đối thủ trực tiếp của Samsung Q950A. Hệ thống của Sony là 7.1.2 kênh trong khi phía Samsung là 11.1.4 kênh. Tuy nhiên, sản phẩm của Sony hỗ trợ Google Assistant, Alexa còn model của Samsung chỉ có các kết nối đơn thuần là Chromecast, AirPlay 2 hoặc Spotify Connect.</p>
+                    <br>
+                    <p>HT-A7000 hỗ trợ cài đặt theo chiều dọc, giả lập âm thanh từ phía trên nhưng không cần lắp loa lên trần nhà. Bên trong có hai loa đánh trần, hai loa Beam tweeter đánh ngang, năm loa trước và loa siêu trầm kép ở chính giữa. Hai công nghệ âm thanh Vertical Surround Engine và S-Force Ppro Front Surround trên HT-A9 cũng có trên A7000.</p>
+                </section>
+            </div>
+    
+        </main>
+    </main>
+    
+    <div class="loader">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <script>
+        const loader = document.querySelector('.loader');
+        const main = document.querySelector('.main');
+        function init(){
+            setTimeout(() => {
+                loader.style.opacity = 0;
+                loader.style.display = 'none';
+                main.style.display = 'block'
+                setTimeout(() => (main.style.opacity = 1), 50);
+            }, 1000);
+        }
+        init();
+    </script>
+    
+    <script>
+
+        const divSac = document.getElementById('divsacduphong')
+        const divOpLung = document.getElementById('divoplung');
+        const divCapSac = document.getElementById('divcapsac')
+        const divTaiNghe = document.getElementById('divtainghe')
+        const divLoa = document.getElementById('divloa')
+
+        const btnSac = document.getElementById('btnSac');
+        const btnOpLung = document.getElementById('btnOpLung');
+        const btnCapSac = document.getElementById('btnCapSac');
+        const btnTaiNghe = document.getElementById('btnTaiNghe');
+        const btnLoa = document.getElementById('btnLoa');
+
+        divSac.style.display = 'inline';
+        btnSac.style.backgroundColor = 'rgb(6, 241, 190)'
+        divOpLung.style.display = 'none';
+        divCapSac.style.display = 'none';
+        divTaiNghe.style.display = 'none';
+        divLoa.style.display = 'none';
+
+        function checkClick1() {
+
+            btnSac.style.backgroundColor = 'rgb(6, 241, 190)'
+            btnOpLung.style.backgroundColor = 'white'
+            btnCapSac.style.backgroundColor = 'white'
+            btnTaiNghe.style.backgroundColor = 'white'
+            btnLoa.style.backgroundColor = 'white'
+
+            divSac.style.display = 'inline';
+            divOpLung.style.display = 'none';
+            divCapSac.style.display = 'none';
+            divTaiNghe.style.display = 'none';
+            divLoa.style.display = 'none';
+
+        }
+        function checkClick2() {
+            divSac.style.display = 'none';
+            divOpLung.style.display = 'inline';
+            divCapSac.style.display = 'none';
+            divTaiNghe.style.display = 'none';
+            divLoa.style.display = 'none';
+
+            btnSac.style.backgroundColor = 'white'
+            btnOpLung.style.backgroundColor = 'rgb(6, 241, 190)'
+            btnCapSac.style.backgroundColor = 'white'
+            btnTaiNghe.style.backgroundColor = 'white'
+            btnLoa.style.backgroundColor = 'white'
+        }
+
+        function checkClick3() {
+            divSac.style.display = 'none';
+            divOpLung.style.display = 'none';
+            divCapSac.style.display = 'inline';
+            divTaiNghe.style.display = 'none';
+            divLoa.style.display = 'none';
+
+            btnSac.style.backgroundColor = 'white'
+            btnOpLung.style.backgroundColor = 'white'
+            btnCapSac.style.backgroundColor = 'rgb(6, 241, 190)'
+            btnTaiNghe.style.backgroundColor = 'white'
+            btnLoa.style.backgroundColor = 'white'
+        }
+
+        function checkClick4() {
+            divSac.style.display = 'none';
+            divOpLung.style.display = 'none';
+            divCapSac.style.display = 'none';
+            divTaiNghe.style.display = 'inline';
+            divLoa.style.display = 'none';
+
+            btnSac.style.backgroundColor = 'white'
+            btnOpLung.style.backgroundColor = 'white'
+            btnCapSac.style.backgroundColor = 'white'
+            btnTaiNghe.style.backgroundColor = 'rgb(6, 241, 190)'
+            btnLoa.style.backgroundColor = 'white'
+        }
+
+        function checkClick5() {
+            divSac.style.display = 'none';
+            divOpLung.style.display = 'none';
+            divCapSac.style.display = 'none';
+            divTaiNghe.style.display = 'none';
+            divLoa.style.display = 'inline';
+
+            btnSac.style.backgroundColor = 'white'
+            btnOpLung.style.backgroundColor = 'white'
+            btnCapSac.style.backgroundColor = 'white'
+            btnTaiNghe.style.backgroundColor = 'white'
+            btnLoa.style.backgroundColor = 'rgb(6, 241, 190)'
+        }
+
+    </script>
+
+    <script>
+        window.addEventListener("scroll", function () {
+            const header = document.querySelector('header');
+            header.classList.toggle('sticky', window.scrollY > 0);
+        });
+
+        const navigation = document.querySelector('nav');
+
+        document.querySelector('.toggle').onclick = function () {
+            this.classList.toggle('active');
+            navigation.classList.toggle('active');
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

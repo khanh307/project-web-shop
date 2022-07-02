@@ -1,0 +1,291 @@
+*
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+
+.navigation ul li:nth-child(2).active ~ .indicator{
+    transform: translateX(calc(53px * 1));
+}
+
+.navigation ul li.active a .icon{
+    transform: translateY(-53px);
+}
+
+.navigation ul li:hover a .icon{
+    transform: translateY(-53px);
+}
+
+.navigation ul li a .text{
+    position: absolute;
+    color: black;
+    font-weight: 400;
+    font-size: 1em;
+    letter-spacing: 0.05em;
+    transition: 0.5s;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+.navigation ul li:hover a .text{
+    opacity: 1;
+    transform: translateY(10px);
+}
+
+.navigation ul li.active a .text{
+    opacity: 1;
+    transform: translateY(10px);
+}
+
+#contentWrapper{
+
+	width: 99%;
+    display: flex;
+    
+}
+#leftSide{
+    
+
+	top: 10px;
+	left:10px;
+	width: 60%;
+	float: left;
+	margin-right: 20px;
+   
+    
+	
+}
+#mainContent{	
+ 	top: 10px;
+    width: 39%;
+    box-shadow:3px 3px 10px #ddd;
+    height: fit-content;
+}
+#leftSide table{
+    width: 100%;
+    height: min-content;
+    padding: 5px;
+}
+.th1{
+    width: 50%;
+    text-align: left;
+    padding: 10px;
+    
+}
+.th1, .th2, .th3, .th0{
+    border-bottom: 2px solid grey;
+    font-size: 15px;
+}
+.th0{
+    width: 5%;
+    
+}
+.th2{
+    width: 5%;
+}
+.th3{
+    width: 10%;
+}
+.order{
+    width: 90%;
+    margin-left: 20px;
+    text-align: right;
+    font-size: 20px;
+    border-bottom: 2px solid gray;
+    padding: 15px;
+}
+.infoOder table{
+    margin-top: 20px;
+    padding: 15px;
+    line-height: 2.5;
+    width: 100%;
+    
+}
+
+.td1, .td2{
+    text-align: right;
+}
+.namecol, .sdt, .address{
+    width: 150px;
+}
+.infoOder input{
+    width: 100%;
+    padding: 5px 0;
+}
+.btn{
+    text-align: right;
+}
+.btn button{
+    margin-right: 10px;
+    padding: 10px 20px;
+    font-size: 15px;
+    color: #6b6a6a;
+    border-color: #6b6a6a;
+    background-color: white;
+    border-radius: 2px;
+}
+.btn button:hover{
+    background-color: #6b6a6a;
+    color: white;
+}
+
+tbody img{
+    width: 100px;
+    float: left;
+}
+#myOder input{
+    width: 40px;
+}
+
+.input-center{
+    text-align: center;
+}
+
+.money{
+    text-align: right;
+}
+.name{
+    color: blue;
+    font-size: 20px;
+    
+}
+
+@media only screen and (max-width: 1200px) {
+   
+    .row{
+        flex-direction: row;
+        margin-top: 300px;
+        
+        margin-left: -300px;
+        text-align: justify;
+    }
+    header, .footer{
+        margin-left: 20px;
+    }
+    .layoutAbout{
+        width: 90%;
+    }
+    .footer-col{
+        width: fit-content;
+    }
+
+    #contentWrapper{
+        flex-direction: column;
+    }
+
+    /* content */
+    #leftSide{
+        width: 100%;
+
+    }
+    #mainContent{
+        width: 100%;
+        margin-top: 60px;
+    }
+    
+}
+
+.main{
+    height: 100%;
+    width: 100%;
+    opacity: 0;
+    display: none;
+    transition: opacity 1s ease-in;
+}
+
+/* CSS loader */
+
+.loader{
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%) rotate(45deg);
+	width: 100px;
+	height: 100px;
+	animation: loader 0.5s linear infinite;
+	opacity: 1;
+}
+
+.loader span{
+	position: absolute;
+	height: 50px;
+	width: 50px;
+	background: #f00;
+	animation: rotate 0.5s linear infinite;
+}
+
+.loader span:nth-child(1){
+	top: 0;
+	left: 0;
+	background: #f79f1f
+}
+
+.loader span:nth-child(2){
+	top: 0;
+	right: 0;
+	background: #12cbc4
+}
+
+.loader span:nth-child(3){
+	bottom: 0;
+	left: 0;
+	background: #ed4c67
+}
+
+.loader span:nth-child(4){
+	bottom: 0;
+	right: 0;
+	background: #a3cb38
+}
+
+@keyframes loader{
+	0%{
+		width: 100px;
+		height: 100px;
+	}
+
+	10%{
+		width: 100px;
+		height: 100px;
+	}
+	50%{
+		width: 150px;
+		height: 150px;
+	}
+
+	90%{
+		width: 100px;
+		height: 100px;
+	}
+
+	100%{
+		width: 100px;
+		height: 100px;
+	}
+}
+
+@keyframes rotate{
+	0%{
+	transform: rotate(0deg);
+	}
+
+	10%{
+		transform: rotate(0deg);
+	}
+	60%{
+		transform: rotate(90deg);
+	}
+
+	90%{
+		transform: rotate(90deg);
+	}
+
+	100%{
+		transform: rotate(90deg);
+	}
+}
+
+/* CSS loader */

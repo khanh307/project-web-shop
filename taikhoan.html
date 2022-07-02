@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Tài Khoản</title>
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="Styles/footer.css">
+    <link rel="stylesheet" href="Styles/header.css">
+    <link rel="stylesheet" href="Styles/taikhoan.css">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+</head>
+
+<body>
+    <main class="main">
+        <header>
+            <div id="layoutHeader">
+                <div id="layoutLogo">
+                    <img src="https://images.radiovolna.net/_files/images/stations/28146/d637d66ace073448b472675811802e4b.png"
+                        height="100px" width="100px">
+                    <p style="font-size: 25px; text-shadow: 3px 3px darkgray;"><b>MANG ĐẾN ĐIỀU TỐT NHẤT CHO BẠN</b></p>
+                </div>
+
+                <div class="bodyNav">
+                    <div class="navigation">
+                        <ul>
+                            <li class="list">
+                                <a href="TrangChu.html">
+                                    <span class="icon">
+                                        <ion-icon name="home-outline"></ion-icon>
+                                    </span>
+                                    <span class="text">Trang chủ</span>
+                                </a>
+                            </li>
+                            <li class="list">
+                                <a href="SanPham.html">
+                                    <span class="icon">
+                                        <ion-icon name="pricetags-outline"></ion-icon>
+                                    </span>
+                                    <span class="text">Sản phẩm</span>
+                                </a>
+                            </li>
+                            <li class="list">
+                                <a href="TinTuc.html">
+                                    <span class="icon">
+                                        <ion-icon name="newspaper-outline"></ion-icon>
+                                    </span>
+                                    <span class="text">Tin Tức</span>
+                                </a>
+                            </li>
+                            <li class="list">
+                                <a href="LienHe.html">
+                                    <span class="icon">
+                                        <ion-icon name="receipt-outline"></ion-icon>
+                                    </span>
+                                    <span class="text">Liên hệ</span>
+                                </a>
+                            </li>
+                            <li class="list active">
+                                <a href="taikhoan.html">
+                                    <span class="icon">
+                                        <ion-icon name="person-add-outline"></ion-icon>
+                                    </span>
+                                    <span class="text">Tài khoản</span>
+                                </a>
+                            </li>
+                            <div class="indicator">
+
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                const list = document.querySelectorAll('.list');
+
+                function activeLink() {
+                    list.forEach((item) => item.classList.remove('active'));
+                    this.classList.add('active');
+                }
+                list.forEach((item) => item.addEventListener('click', activeLink));
+            </script>
+
+            <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+            <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        </header>
+        <div class="login-page">
+            <div class="box" style="background-image: url(images/oplung.jpg);">
+                <div class="left">
+                    <h3>Tạo tài khoản mới</h3>
+                    <button type="button" class="register-btn">Đăng ký</button>
+                </div>
+                <div class="right">
+                    <h3>Đã có tài khoản?</h3>
+                    <button type="button" class="login-btn">Đăng nhập</button>
+                </div>
+                <div class="form">
+                    <!-- Form đăng nhập -->
+                    <div class="login-form">
+                        <h3>Đăng nhập</h3>
+                        <div class="form-group">
+                            <input type="text" placeholder="Email*" class="form-control" id="email">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" placeholder="Mật khẩu*" class="form-control" id="pass">
+                        </div>
+                        <div class="form-group">
+                            <label>
+                                <input type="checkbox"> Ghi nhớ đăng nhập
+                            </label>
+                        </div>
+                        <button type="button" class="submit-btn" onclick="checkLogin()">Đăng nhập</button>
+                        <p><a href="#" class="register-btn">Đăng ký</a> | <a href="#" class="lost-pass-btn">Quên mật
+                                khẩu?</a></p>
+                    </div>
+                    <!-- Hết -->
+
+                    <!-- Form đăng ký -->
+                    <div class="register-form form-hidden">
+                        <h3>Đăng ký</h3>
+                        <div class="form-group">
+                            <input type="text" placeholder="Họ tên*" class="form-control" id="name">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Số điện thoại*" class="form-control" id="phone">
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Email*" class="form-control" id="mail">
+                        </div>
+                        <div class="form-group">
+                            <input type="password" placeholder="Mật khẩu*" class="form-control" id="pass">
+                        </div>
+
+                        <button type="button" class="submit-btn" onclick="checkRegis()">Đăng ký</button>
+                        <p><a href="#" class="login-btn">Đăng ký</a> | <a href="#" class="lost-pass-btn">Quên mật
+                                khẩu?</a></p>
+                    </div>
+                    <!-- Hết -->
+
+                    <!-- Form quên mật khẩu -->
+                    <div class="lost-password-form form-hidden">
+                        <h3>Quên mật khẩu?</h3>
+                        <h5>Bạn sẽ nhận được link cung cấp mật khẩu mới qua Email mà bạn đã đăng ký trước đây!</h5>
+
+                        <div class="form-group">
+                            <input type="text" placeholder="Email*" id="email" class="form-control" required
+                                pattern="^[a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z]{2,4}">
+                        </div>
+
+                        <button type="button" class="submit-btn" onclick="checkEmail()">Đặt lại mật khẩu</button>
+                        <p><a href="#" class="login-btn">Đăng nhập</a> | <a href="#" class="register-btn">Đăng ký</a>
+                        </p>
+                    </div>
+                    <!-- Hết -->
+
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer" id="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="layoutAbout">
+
+                        <div>
+                            <img src="images/logo.png" height="100px" width="100px">
+                        </div>
+                        <h3>CỬA HÀNG PHỤ KIỆN ĐIỆN THOẠI DKL</h3>
+                        <section>
+                            <span class="iconbtn fas fa-location"></span>
+                            <p>Khu ABC, đường XYU, phường CDE, quận IJK, thành phố QWE</p>
+                        </section>
+
+                        <div class="clear"></div>
+
+                        <section>
+                            <span class="iconbtn fas fa-phone"></span>
+                            <p>0123456789</p>
+                        </section>
+
+                        <div class="clear"></div>
+
+                        <section>
+                            <span class="iconbtn fas fa-envelope"></span>
+                            <p>DKL@gmail.com</p>
+                        </section>
+
+                    </div>
+                    <div class="footer-col">
+                        <h4>DKL shop</h4>
+                        <ul>
+                            <li><a href="#">về chúng tôi</a></li>
+                            <li><a href="#layoutPro">các dịch vụ</a></li>
+                            <li><a href="#layoutPro">các chính sách</a></li>
+                            <li><a href="#layoutPro">các chương trình</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Hỗ trợ</h4>
+                        <ul>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#layoutPro">shipping</a></li>
+                            <li><a href="#layoutPro">trả hàng</a></li>
+                            <li><a href="#layoutPro">đặt hàng</a></li>
+                            <li><a href="#layoutPro">thanh toán</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>cửa hàng</h4>
+                        <ul>
+                            <li><a href="SacDuPhong.html">sạc dự phòng</a></li>
+                            <li><a href="OpLung.html">ốp lưng</a></li>
+                            <li><a href="CapSac.html">sạc</a></li>
+                            <li><a href="TaiNghe.html">tai nghe</a></li>
+                            <li><a href="Loa.html">loa</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Theo dõi chúng tôi</h4>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+    <div class="loader">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <script>
+        //Thêm sự kiện và chuyển đổi trang khi bấm nút
+        const loginBtn = document.querySelectorAll(".login-btn"),
+            registerBtn = document.querySelectorAll(".register-btn"),
+            lostPassBtn = document.querySelectorAll(".lost-pass-btn"),
+            box = document.querySelector(".box"),
+            loginForm = document.querySelector(".login-form"),
+            registerForm = document.querySelector(".register-form"),
+            lostPasswordForm = document.querySelector(".lost-password-form");
+
+        registerBtn.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                box.classList.add("slide-active");
+                registerForm.classList.remove("form-hidden");
+                loginForm.classList.add("form-hidden");
+                lostPasswordForm.classList.add("form-hidden");
+            });
+        });
+
+        loginBtn.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                box.classList.remove("slide-active");
+                registerForm.classList.add("form-hidden");
+                loginForm.classList.remove("form-hidden");
+                lostPasswordForm.classList.add("form-hidden");
+            });
+        });
+
+        lostPassBtn.forEach((btn) => {
+            btn.addEventListener("click", () => {
+                registerForm.classList.add("form-hidden");
+                loginForm.classList.add("form-hidden");
+                lostPasswordForm.classList.remove("form-hidden");
+            });
+        });
+        //Hết-----------------------------------------------------------
+
+        //Kiểm tra form đăng nhập
+        function checkLogin() {
+            var str = '{"email": "abc@gmail.com","matkhau": "12345678"}';
+            var obj = JSON.parse(str);
+            var emaill = document.getElementById('email').value;
+            var passwd = document.getElementById('pass').value;
+            if ((emaill === obj.email) && (passwd === obj.matkhau)) {
+                alert("Đăng nhập thành công!");
+                window.location.href = "TrangChu.html";
+            }
+            alert("Đăng nhập không thành công!");
+        }
+        //Hết-----------------------------------------------------------
+
+        //Kiểm tra form quên mật khẩu
+        function checkEmail() {
+            var emaill = document.getElementById('email');
+            var check = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
+            if (!check.test(emaill.value)) {
+                alert("Vui lòng nhập email đúng định dạng!");
+                return;
+            }
+            alert("Xác nhận thành công");
+        }
+        //Hết-----------------------------------------------------------
+
+        //Kiểm tra thông tin form Đăng ký
+        function checkRegis() {
+            var namee = document.getElementById('name').value;
+            var phonee = document.getElementById('phone').value;
+            var emaill = document.getElementById('mail').value;
+            var passwd = document.getElementById('pass').value;
+            var checkemaill = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+            var checkphonee = /^(0[8935][0-9]{8})$/;
+            if (namee == "") {
+                alert("Vui lòng nhập tên!");
+                return;
+            }
+            if ((passwd == "") | (passwd.length < 8)) {
+                alert("Vui lòng nhập mật khẩu ít nhất 8 ký tự!");
+                return;
+            }
+            if (!checkemaill.test(emaill)) {
+                alert("Vui lòng nhập email đúng định dạng!");
+                return;
+            }
+            if (!checkphonee.test(phonee)) {
+                alert("Vui lòng nhập số điện thoại hợp lệ!");
+                return;
+            }
+            alert("Đăng ký thành công!");
+        }
+
+        const loader = document.querySelector('.loader');
+        const main = document.querySelector('.main');
+        function init() {
+            setTimeout(() => {
+                loader.style.opacity = 0;
+                loader.style.display = 'none';
+                main.style.display = 'block'
+                setTimeout(() => (main.style.opacity = 1), 50);
+            }, 500);
+        }
+        init();
+        //Hết-----------------------------------------------------------
+    </script>
+</body>
+
+</html>

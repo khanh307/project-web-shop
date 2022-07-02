@@ -1,0 +1,680 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+
+    <title>Loa</title>
+
+    <link href='https://unpkg.com/boxicons@2.1.1/css/boxicons.min.css' rel='stylesheet'>
+    <link rel="shortcut icon" href="images/logo.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+
+    <link rel="stylesheet" href="Styles/header.css">
+    <link rel="stylesheet" href="Styles/footer.css">
+    <link rel="stylesheet" href="Styles/sanpham.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script>
+        window.onload = function () {
+            numberSP();
+            showHeart();
+            showRedHeart();
+        };
+    </script>
+
+</head>
+
+<body>
+    <main class="main">
+        <header>
+            <div id="layoutHeader">
+                <div id="layoutLogo">
+                    <img src="images/logo.png" height="100px" width="100px">
+                    <p style="font-size: 25px; text-shadow: 3px 3px darkgray;"><b>MANG ĐẾN ĐỀU TỐT NHẤT CHO BẠN</b></p>
+                </div>
+
+                <div class="bodyNav">
+                    <div class="navigation">
+                        <ul>
+                            <li class="list">
+                                <a href="TrangChu.html">
+                                    <span class="icon">
+                                        <ion-icon name="home-outline"></ion-icon>
+                                    </span>
+                                    <span class="text">Trang chủ</span>
+                                </a>
+                            </li>
+                            <li class="list active">
+                                <a href="SanPham.html">
+                                    <span class="icon">
+                                        <ion-icon name="id-card-outline"></ion-icon>
+                                    </span>
+                                    <span class="text">Sản phẩm</span>
+                                </a>
+                            </li>
+                            <li class="list">
+                                <a href="TinTuc.html">
+                                    <span class="icon">
+                                        <ion-icon name="newspaper-outline"></ion-icon>
+                                    </span>
+                                    <span class="text">Tin Tức</span>
+                                </a>
+                            </li>
+                            <li class="list">
+                                <a href="LienHe.html">
+                                    <span class="icon">
+                                        <ion-icon name="mail-unread-outline"></ion-icon>
+                                    </span>
+                                    <span class="text">Liên hệ</span>
+                                </a>
+                            </li>
+                            <li class="list">
+                                <a href="taikhoan.html">
+                                    <span class="icon">
+                                        <ion-icon name="person-outline"></ion-icon>
+                                    </span>
+                                    <span class="text">Tài khoản</span>
+                                </a>
+                            </li>
+
+                            <span class="icCart">
+                                <ion-icon name="cart-outline" onclick="showcart();"></ion-icon><sup
+                                    id="numberCart">0</sup>
+                            </span>
+
+                            <div class="indicator"></div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <script>
+                const list = document.querySelectorAll('.list');
+                function activeLink() {
+                    list.forEach((item) => item.classList.remove('active'));
+                    this.classList.add('active');
+                }
+                list.forEach((item) => item.addEventListener('click', activeLink));
+            </script>
+
+            <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+            <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+        </header>
+        <main id="contentWrapper">
+            <script>
+                $(document).ready(function () {
+                    $('.icon-content').click(function () {
+
+                        $('.leftMenu').slideToggle();
+                    });
+                })
+            </script>
+
+            <div class="icon-content">
+                <i class="bx bx-menu" id="icon-menu"></i>
+            </div>
+            <div class="cart-container" id="show-cart">
+                <table>
+                    <tr>
+                        <th style="width: 50px;">STT</th>
+                        <th>Sản phẩm</th>
+
+                        <th>Thành tiền</th>
+                        <th></th>
+                    </tr>
+                    <tr>
+                        <td></td>
+                    </tr>
+                    <tbody id="mycart">
+
+                    </tbody>
+
+
+                </table>
+
+                <div>
+                    <a href="ThanhToan.html"><button>Thanh toán</button></a>
+
+                </div>
+            </div>
+
+            <div id="leftSide">
+                <div class="leftMenu">
+                    <ul>
+                        <li><a href="SanPham.html">Sản phẩm Hot <i style="color: orange; font-size: 25px;"
+                                    class='bx bxs-hot'></i></a></li>
+                        <li> <a href="SacDuPhong.html">Sạc dự phòng</a></li>
+                        <li><a href="CapSac.html">Cáp sạc</a></li>
+                        <li><a href="TaiNghe.html">Tai nghe</a></li>
+                        <li style="background-color: rgb(129, 183, 233);"><a href="Loa.html"
+                                style="color: black;">Loa</a>
+                        </li>
+                        <li><a href="OpLung.html">Ốp lưng</a></li>
+                    </ul>
+                    <div class="heart" id="showheart">
+                        <div class="title">
+                            <b>SẢN PHẨM YÊU THÍCH</b>
+                        </div>
+                        <div id="tblHeart">
+                            <table>
+                                <tbody id="myheart">
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div id="mainContent">
+                <div class="SP_content">
+                    <img class="banner" src="images/SanPham/banner/loa-1200x150.png" alt="">
+                </div>
+                <div class="card_content">
+
+
+                    <!-- SP1 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+
+                        <div class="card_img"
+                            style="width: 200px; object-fit: cover; margin-left: 25px; margin-top: 28px; ">
+                            <img src="images/SanPham/Loa/sp1.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Mozard E8</span> <br>
+                            <span id="price">760,000</span><sup>đ</sup>
+
+                        </div>
+                        <div class="card_note">
+                            <p>
+                                Loa Bluetooth Mozard E8 có 2 màu sắc là đỏ và Xanh Navy đẹp mắt cho bạn dễ lựa chọn theo
+                                sở
+                                thích. Thiết kế hình trụ gọn gàng, kết cấu chắc chắn bạn có thể trực tiếp cầm trên tay
+                                để di
+                                chuyển hay cho vào balo, túi xách để mang đi xa như công tác, du lịch.
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                    <!-- SP2 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+
+                        <div class="card_img"
+                            style="width: 180px; object-fit: cover; margin-left: 45px; margin-top: -30px;">
+                            <img src="images/SanPham/Loa/sp2.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Sony Extra Bass SRS-XB23</span> <br>
+                            <span id="price">1,990,000</span><sup>đ</sup>
+
+                        </div>
+
+                        <div class="card_note">
+                            <p>
+                                Hình trụ tròn tinh xảo, loa có kích thước dễ cầm nắm, di chuyển. Sở hữu các màu sắc sang
+                                trọng là xanh dương, đen, xanh rêu giúp tôn vinh nét đẹp của mọi không gian sử dụng, cho
+                                người dùng thêm cá tính, sành điệu.
+
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                    <!-- SP3 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+
+                        <div class="card_img" style="width: 150px; object-fit: cover; margin-left: 55px;">
+                            <img src="images/SanPham/Loa/sp3.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Mozard Y550 Plus</span> <br>
+                            <span id="price">440,000</span><sup>đ</sup>
+
+                        </div>
+
+                        <div class="card_note">
+                            <p>
+                                Loa Bluetooth Mozard Y550 Plus có thiết kế hình lăng trụ tam giác độc đáo cùng màu đen
+                                hợp
+                                thời trang sẽ là một món phụ kiện lạ mắt dành cho những bạn trẻ. Loa có kích thước nhỏ
+                                gọn
+                                bạn có thể để vào balo hay túi xách mang đi muôn nơi, loa còn được trang bị thêm dây
+                                treo
+                                tiện lợi.
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                    <!-- SP 4 -->
+
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+
+                        <div class="card_img"
+                            style="width: 180px; object-fit: cover; margin-left: 40px; margin-top: -30px;">
+                            <img src="images/SanPham/Loa/sp4.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Sony Extra Bass SRS-XB33</span> <br>
+                            <span id="price">2,950,000</span><sup>đ</sup>
+
+                        </div>
+
+                        <div class="card_note">
+                            <p>
+                                Thiết kế cầm vừa tay, có thể trực tiếp cầm loa nghe nhạc hoặc cho vào túi xách, balo khi
+                                đi
+                                chơi, du lịch, đi làm,... Với 3 gam màu nổi bật là đen, đỏ và xanh dương, bạn nam và nữ
+                                có
+                                thể tiện chọn mua theo sở thích của mình.
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+
+
+                </div>
+
+                <div class="card_content">
+                    <!-- Sản phẩm 5 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+
+                        <div class="card_img"
+                            style="width: 250px; object-fit: cover; margin-left: 10px; margin-top: 15px;">
+                            <img src="images/SanPham/Loa/sp5.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Fenda W5 Plus</span> <br>
+                            <span id="price">360,000</span><sup>đ</sup>
+
+                        </div>
+
+                        <div class="card_note">
+                            <p>
+                                Chiếc loa Bluetooth Fenda này có 2 màu sắc trẻ trung năng động là màu xám và xanh navy,
+                                loa
+                                có kích thước nhỏ gọn dễ dàng mang theo trong những chuyến dã ngoại ngoài trời, góp phần
+                                tăng thêm bầu không khí cho chuyến đi.
+                            </p>
+
+                        </div>
+
+
+                    </div>
+                    <!-- Sản phẩm 6 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+
+                        <div class="card_img"
+                            style="width: 190px; object-fit: cover; margin-left: 30px; margin-top: -20px;">
+                            <img src="images/SanPham/Loa/sp6.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Sony SRS-XB13</span> <br>
+                            <span id="price">1,160,000</span><sup>đ</sup>
+
+                        </div>
+
+                        <div class="card_note">
+                            <p>
+                                Thiết kế loa Bluetooth Sony đơn giản, gọn nhẹ chỉ 0.4 kg, đi kèm dây treo cho bạn dễ
+                                dàng
+                                đeo vào cổ tay của mình hoặc treo móc vào balo mang theo khi đi chơi, du lịch, đi
+                                học,...
+                                Chất liệu vỏ nhựa có thêm lớp UV coating cho độ bền cao, chống trầy xước, làm sạch nhẹ
+                                nhàng.
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                    <!-- Sản phẩm 7 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+
+                        <div class="card_img"
+                            style="width: 200px; object-fit: cover; margin-left: 30px; margin-top: -30px;">
+                            <img src="images/SanPham/Loa/sp7.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">JBL Charge 5</span> <br>
+                            <span id="price">3,990,000</span><sup>đ</sup>
+
+                        </div>
+
+                        <div class="card_note">
+                            <p>
+                                Được gia cố kỳ công cho kết cấu gọn gàng, loa JBL có khả năng chịu va đập tốt, dịch
+                                chuyển
+                                dễ dàng nhờ trọng lượng chỉ 0.96 kg, bố trí vững vàng trên bàn, kệ, bãi cát, tảng đá ở
+                                nơi
+                                cắm trại với thiết kế chân đế có độ bám tối ưu.
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                    <!-- Sản phẩm 8 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+
+                        <div class="card_img"
+                            style="width: 180px; object-fit: cover; margin-left: 35px; margin-top: -10px;">
+                            <img src="images/SanPham/Loa/sp8.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Harman Kardon Onyx Studio 6</span> <br>
+                            <span id="price">4,990,000</span><sup>đ</sup>
+
+                        </div>
+
+                        <div class="card_note">
+                            <p>
+                                Với kiểu sáng cực kỳ mềm mại và sang chảnh, loa Bluetooth thiết kế theo hình dáng giọt
+                                nước
+                                với cấu trúc chắc chắn, chinh phục mọi ánh nhìn ngay từ lần đầu tiếp cận.
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+
+
+
+                <div class="card_content">
+                    <!-- Sản phẩm 9 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+
+                        <div class="card_img"
+                            style="width: 200px; object-fit: cover; margin-left: 30px; margin-top: -30px;">
+                            <img src="images/SanPham/Loa/sp9.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Harman Kardon Onyx Studio 7</span> <br>
+                            <span id="price">5.990,000</span><sup>đ</sup>
+
+                        </div>
+
+                        <div class="card_note">
+                            <p>
+                                Dáng tròn đều kết hợp tay cầm uốn cong qua mặt trước của loa tạo hình dạng như dải ngân
+                                hà
+                                bao quanh trái đất cho thiết kế thêm cao cấp, thẩm mỹ hơn. Sản phẩm trang bị ê căng vải
+                                dệt
+                                chống bụi, ẩm.
+                        </div>
+
+
+                    </div>
+                    <!-- Sản phẩm 10 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+
+                        <div class="card_img"
+                            style="width: 200px; object-fit: cover; margin-left: 30px; margin-top: -30px;">
+                            <img src="images/SanPham/Loa/sp10.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">Harman Kardon SoundSticks 4</span> <br>
+                            <span id="price">7,990,000</span><sup>đ</sup>
+
+                        </div>
+
+                        <div class="card_note">
+                            <p>
+                                Loa Bluetooth Harman Kardon SoundSticks 4 Trắng gồm 2 cột loa vệ tinh và một subwoofer,
+                                loa
+                                subwoofer có thiết kế dạng vòm, bề mặt trong suốt cùng tông màu trắng cho các chi tiết
+                                bên
+                                trong loa.
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                    <!-- Sản phẩm 11 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+
+                        <div class="card_img"
+                            style="width: 200px; object-fit: cover; margin-left: 30px; margin-top: -30px;">
+                            <img src="images/SanPham/Loa/sp11.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">JBL Partybox 100</span> <br>
+                            <span id="price">9,990,000</span><sup>đ</sup>
+
+                        </div>
+
+                        <div class="card_note">
+                            <p>
+                                Loa Bluetooth JBL Partybox 100 màu đen với thiết kế hình trụ khá mềm mại, vát cạnh tinh
+                                tế,
+                                tạo nét sang trọng cho tổng thể sản phẩm và không gian sử dụng. Cụm đèn LED chiếu sáng
+                                trên
+                                màng loa tạo thêm sức hút cho không gian chơi nhạc, thêm sống động và hào hứng khi
+                                thưởng
+                                thức âm nhạc trong những buổi party.
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                    <!-- Sản phẩm 12 -->
+                    <div class="card">
+                        <div class="card_heart">
+                            <i class="bx bx-heart icon_heart" onclick="addHeart(this)"></i>
+                        </div>
+                        <div class="card_cart">
+                            <i class="bx bx-cart-alt icon_cart" onclick="addItem(this);"></i>
+                        </div>
+
+                        <div class="card_img"
+                            style="width: 200px; object-fit: cover; margin-left: 50px; margin-top: -10px; margin-bottom: 50px;">
+                            <img src="images/SanPham/Loa/sp12.png" alt="">
+                        </div>
+                        <div class="card_title">
+                            <span id="name">MozardX BM01</span> <br>
+                            <span id="price">1,050,000</span><sup>đ</sup>
+
+                        </div>
+
+                        <div class="card_note">
+                            <p>
+                                Loa Bluetooth MozardX BM01 đen có thiết kế năng động, trẻ trung, với quai cầm tiện ích,
+                                dễ
+                                dàng mang theo khi đi du lịch, cắm trại. Loa nghe nhạc có đèn Led đổi màu theo nhịp
+                                điệu,
+                                cho không khí thêm sôi động, giúp buổi tiệc nhiều màu sắc và thêm vui.
+                            </p>
+
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <div class="container">
+                <div class="row">
+                    <div class="layoutAbout">
+
+                        <div>
+                            <img src="https://images.radiovolna.net/_files/images/stations/28146/d637d66ace073448b472675811802e4b.png"
+                                height="100px" width="100px">
+                        </div>
+                        <h3>CỬA HÀNG PHỤ KIỆN ĐIỆN THOẠI DKL</h3>
+                        <section>
+                            <span class="iconbtn fas fa-location"></span>
+                            <p>Khu ABC, đường XYU, phường CDE, quận IJK, thành phố QWE</p>
+                        </section>
+
+                        <div class="clear"></div>
+
+                        <section>
+                            <span class="iconbtn fas fa-phone"></span>
+                            <p>0123456789</p>
+                        </section>
+
+                        <div class="clear"></div>
+
+                        <section>
+                            <span class="iconbtn fas fa-envelope"></span>
+                            <p>DKL@gmail.com</p>
+                        </section>
+
+                    </div>
+                    <div class="footer-col">
+                        <h4>DKL shop</h4>
+                        <ul>
+                            <li><a href="#">về chúng tôi</a></li>
+                            <li><a href="#">các dịch vụ</a></li>
+                            <li><a href="#">các chính sách</a></li>
+                            <li><a href="#">các chương trình</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Hỗ trợ</h4>
+                        <ul>
+                            <li><a href="#">FAQ</a></li>
+                            <li><a href="#">shipping</a></li>
+                            <li><a href="#">trả hàng</a></li>
+                            <li><a href="#">đặt hàng</a></li>
+                            <li><a href="#">thanh toán</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>cửa hàng</h4>
+                        <ul>
+                            <li><a href="#">sạc dự phòng</a></li>
+                            <li><a href="#">ốp lưng</a></li>
+                            <li><a href="#">sạc</a></li>
+                            <li><a href="#">tai nghe</a></li>
+                            <li><a href="#">loa</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Theo dõi chúng tôi</h4>
+                        <div class="social-links">
+                            <a href="#"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#"><i class="fab fa-youtube"></i></a>
+                            <a href="#"><i class="fab fa-instagram"></i></a>
+                            <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </main>
+    <div class="loader">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+
+    <script>
+        const loader = document.querySelector('.loader');
+        const main = document.querySelector('.main');
+        function init(){
+            setTimeout(() => {
+                loader.style.opacity = 0;
+                loader.style.display = 'none';
+                main.style.display = 'block'
+                setTimeout(() => (main.style.opacity = 1), 50);
+            }, 500);
+        }
+        init();
+    </script>
+    <script src="Scrips/scrips.js"></script>
+</body>
+
+</html>
